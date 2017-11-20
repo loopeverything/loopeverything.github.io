@@ -9,7 +9,7 @@ h1 {
   line-height: 1em; }
 
 h2 {
-  color: #666;
+  color: #777;
   font-family: "Roboto", sans-serif;
   font-size: 21.6px;
   font-weight: normal;
@@ -17,11 +17,11 @@ h2 {
   line-height: 0.6em; }
 
 body {
-  color: #666;
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 18px;
+  color: #777;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
   font-weight: 300;
-  line-height: 1.5em; }
+  line-height: 1.6em; }
 
 /*================ Base layout ================*/
 html {
@@ -67,8 +67,8 @@ body {
   border-radius: 50%; }
 
 .bio-blurb {
-  color: #666;
-  font-family: "Roboto Condensed", sans-serif;
+  color: #777;
+  font-family: "Roboto", sans-serif;
   font-size: 24px;
   font-weight: 300;
   line-height: 1.4; }
@@ -90,31 +90,74 @@ body {
   .project-thumbnail .title {
     text-align: center; }
 
+.project-wrapper {
+  background-color: #fff;
+  margin: 0px 60px; }
+
 .project .title {
   color: #333;
   font-family: "Roboto", sans-serif;
   font-size: 36px;
   font-weight: normal; }
 .project .subtitle {
-  color: #666;
+  color: #777;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 24px;
   font-weight: 300; }
+.project h3 {
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22.1px;
+  font-weight: 300;
+  line-height: 10px; }
 .project .date {
-  color: #b3b3b3;
+  color: #c4c4c4;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16.8px;
   font-weight: 300;
   font-style: italic;
   line-height: 10px; }
-.project .column {
-  background-color: #eee; }
-  .project .column p {
-    padding: 0;
-    margin-top: 0; }
+.project .column p {
+  padding: 0;
+  margin-top: 0; }
+.project .lead-in {
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 28.9px;
+  font-weight: 300;
+  line-height: 1.2em; }
 .project .thumbnail {
   background-color: #999; }
   .project .thumbnail img {
     max-width: 100%; }
+.project .inline-image {
+  background-color: #eee;
+  text-align: center; }
+  .project .inline-image img {
+    max-width: 100%; }
+@media only screen and (max-width: 64em) {
+  .project .link-list-top {
+    display: none; } }
+@media only screen and (min-width: 64em) {
+  .project .link-list-bottom {
+    display: none; } }
+.project .link-list-top, .project .link-list-bottom {
+  color: #c4c4c4;
+  font-size: 14px;
+  margin: 0;
+  padding: 20px 0px; }
+  .project .link-list-top div, .project .link-list-bottom div {
+    padding-bottom: 8px; }
+  .project .link-list-top p, .project .link-list-bottom p {
+    margin: 0;
+    padding-bottom: 4px;
+    line-height: 1em; }
+  .project .link-list-top a, .project .link-list-bottom a {
+    text-decoration: none;
+    color: #222;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 16px; }
+    .project .link-list-top a:hover, .project .link-list-bottom a:hover {
+      color: #555555; }
 
 /*# sourceMappingURL=main.css.map */
