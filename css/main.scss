@@ -29,7 +29,7 @@ h1 {
   font-family: $headerFontFamily;
   font-size: $headerFontSize;
   font-weight: $headerFontWeight;
-  line-height: 10px;
+  line-height: 1em;
 }
 
 h2 {
@@ -38,7 +38,7 @@ h2 {
   font-size: $headerFontSize * 0.6;
   font-weight: $headerFontWeight;
   word-wrap: normal;
-  line-height: 16px;
+  line-height: 0.6em;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
   font-family: $bodyFontFamily;
   font-size: $bodyFontSize;
   font-weight: $bodyFontWeight;
-  line-height: 1.5;
+  line-height: 1.5em;
 }
 
 /*================ Base layout ================*/
@@ -166,5 +166,18 @@ body {
 
   .column {
     background-color: #eee;
+
+    p {
+      padding:0;
+      margin-top:0;
+    }
+  }
+
+  .thumbnail {
+    background-color: #999;
+
+    img {
+      max-width: 100%;
+    }
   }
 }

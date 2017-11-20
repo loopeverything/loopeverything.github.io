@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:300,400" rel="stylesheet">
 	<!--<link rel="stylesheet" type="text/css" href="../public/css/main.css">-->
   <link rel="stylesheet" type="text/css" href="/Users/alex/projects/nomstar.github.io/public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="lightgallery.min.css">
 
 	<meta property="og:url" content="https://nomstar.github.io" />
 	<meta property="og:site_name" content="Alex Thompson | Portfolio" />
@@ -43,7 +44,23 @@
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div class="column">
-          <p>Project Images</p>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="thumbnail">
+                <img src="http://via.placeholder.com/500x300">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="thumbnail">
+                <img src="http://via.placeholder.com/500x300">
+              </div>
+            </div>
+          </div>
+          <!--<div id="lightgallery">
+            <a href="infographic.png">
+              <img src="infographic.png">
+            </a>
+          </div>-->
         </div>
       </div>
       <div class="col-xs-12 col-md-4">
@@ -61,6 +78,10 @@
     </div>
 	</div> <!-- Wrapper -->
 
-	<script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.1/lib/js/lightgallery.js" integrity="sha256-9zUzzw7FbZhHCIYo4KEvSJ1gLXcpMeuK4UUZwToyrjw=" crossorigin="anonymous"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.1/lib/js/lightgallery.js" integrity="sha256-9zUzzw7FbZhHCIYo4KEvSJ1gLXcpMeuK4UUZwToyrjw=" crossorigin="anonymous"></script>-->
+  <script src="lightgallery.min.js"></script>
+  <script>
+    //lightGallery(document.getElementById('lightgallery'));
+  </script>
 </body>
 </html>
