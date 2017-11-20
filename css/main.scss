@@ -1,0 +1,170 @@
+/*================ Color variables ================*/
+$colorHeader: #333;
+$colorBody: #666;
+$colorNavLink: #222;
+
+/*================ Font variables ================*/
+$headerFontFamily: 'Roboto', sans-serif;
+$headerFontSize: 36px;
+$headerFontWeight: normal;
+
+$bodyFontFamily: 'Roboto Condensed', sans-serif;
+$bodyFontSize: 18px;
+$bodyFontWeight: 300;
+
+$linkFontFamily: 'Roboto Condensed', sans-serif;
+$linkFontSize: 16px;
+
+$projectTitleFontFamily: 'Roboto', sans-serif;
+$projectTitleFontSize: 36px;
+$projectTitleFontWeight: normal;
+
+$projectSubtitleFontFamily: 'Roboto Condensed', sans-serif;
+$projectSubtitleFontSize: 24px;
+$projectSubtitleFontWeight: 300;
+
+/*================ Text ================*/
+h1 {
+  color: $colorHeader;
+  font-family: $headerFontFamily;
+  font-size: $headerFontSize;
+  font-weight: $headerFontWeight;
+  line-height: 10px;
+}
+
+h2 {
+  color: $colorBody;
+  font-family: $headerFontFamily;
+  font-size: $headerFontSize * 0.6;
+  font-weight: $headerFontWeight;
+  word-wrap: normal;
+  line-height: 16px;
+}
+
+body {
+  color: $colorBody;
+  font-family: $bodyFontFamily;
+  font-size: $bodyFontSize;
+  font-weight: $bodyFontWeight;
+  line-height: 1.5;
+}
+
+/*================ Base layout ================*/
+html {
+  background-color: #333;
+}
+
+body {
+  margin-top: 30px;
+}
+
+.wrapper {
+  background-color: #fff;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    width: 1030px;
+    margin: 0 auto;
+  }
+}
+
+
+.nav {
+  background-color: #eee;
+  margin-bottom: 10px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+    display: block;
+    padding-left: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $colorNavLink;
+    font-family: $linkFontFamily;
+    font-size: $linkFontSize;
+
+    &:hover {
+      color: lighten($colorNavLink, 20%);
+    }
+  }
+}
+
+.box {
+  padding: 0px 20px;
+}
+
+/*================ Splash page ================*/
+.profile-pic {
+  border-radius: 50%;
+}
+
+.bio-blurb {
+  color: $colorBody;
+  font-family: $bodyFontFamily;
+  font-size: 24px;
+  font-weight: $bodyFontWeight;
+  line-height: 1.4;
+
+  a {
+    text-decoration: none;
+    color: $colorNavLink;
+    font-family: $linkFontFamily;
+    font-size: 24px;
+    border-bottom: 1px solid lighten($colorNavLink, 60%);
+
+    &:hover {
+      color: lighten($colorNavLink, 60%);
+    }
+  }
+}
+
+/*================ Portfolio and Project pages ================*/
+.project-thumbnail {
+  max-width: 250px;
+  margin: 0 auto;
+  background-color: #eee;
+  padding: 10px;
+
+  .title {
+    text-align: center;
+  }
+}
+
+.project {
+  .title {
+    color: $colorHeader;
+    font-family: $projectTitleFontFamily;
+    font-size: $projectTitleFontSize;
+    font-weight: $projectTitleFontWeight;
+  }
+
+  .subtitle {
+    color: $colorBody;
+    font-family: $projectSubtitleFontFamily;
+    font-size: $projectSubtitleFontSize;
+    font-weight: $projectSubtitleFontWeight;
+  }
+
+  .date {
+    color: lighten($colorBody, 30%);
+    font-family: $projectSubtitleFontFamily;
+    font-size: $projectSubtitleFontSize * 0.7;
+    font-weight: $projectSubtitleFontWeight;
+    font-style: italic;
+    line-height: 10px;
+  }
+
+  .column {
+    background-color: #eee;
+  }
+}

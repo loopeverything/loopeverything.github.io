@@ -1,0 +1,113 @@
+/*================ Color variables ================*/
+/*================ Font variables ================*/
+/*================ Text ================*/
+h1 {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 10px; }
+
+h2 {
+  color: #666;
+  font-family: "Roboto", sans-serif;
+  font-size: 21.6px;
+  font-weight: normal;
+  word-wrap: normal;
+  line-height: 16px; }
+
+body {
+  color: #666;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5; }
+
+/*================ Base layout ================*/
+html {
+  background-color: #333; }
+
+body {
+  margin-top: 30px; }
+
+.wrapper {
+  background-color: #fff; }
+  @media (max-width: 1024px) {
+    .wrapper {
+      width: 100%; } }
+  @media (min-width: 1024px) {
+    .wrapper {
+      width: 1030px;
+      margin: 0 auto; } }
+
+.nav {
+  background-color: #eee;
+  margin-bottom: 10px; }
+  .nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  .nav li {
+    float: left;
+    display: block;
+    padding-left: 20px; }
+  .nav a {
+    text-decoration: none;
+    color: #222;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 16px; }
+    .nav a:hover {
+      color: #555555; }
+
+.box {
+  padding: 0px 20px; }
+
+/*================ Splash page ================*/
+.profile-pic {
+  border-radius: 50%; }
+
+.bio-blurb {
+  color: #666;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.4; }
+  .bio-blurb a {
+    text-decoration: none;
+    color: #222;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 24px;
+    border-bottom: 1px solid #bbbbbb; }
+    .bio-blurb a:hover {
+      color: #bbbbbb; }
+
+/*================ Portfolio and Project pages ================*/
+.project-thumbnail {
+  max-width: 250px;
+  margin: 0 auto;
+  background-color: #eee;
+  padding: 10px; }
+  .project-thumbnail .title {
+    text-align: center; }
+
+.project .title {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  font-weight: normal; }
+.project .subtitle {
+  color: #666;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: 300; }
+.project .date {
+  color: #b3b3b3;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16.8px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 10px; }
+.project .column {
+  background-color: #eee; }
+
+/*# sourceMappingURL=main.css.map */
