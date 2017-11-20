@@ -141,7 +141,7 @@ body {
 
 .project-wrapper {
   background-color: #fff;
-  margin: 0px 60px;
+  margin: 0px 60px 100px 60px;
 }
 
 .project {
@@ -202,9 +202,18 @@ body {
   .inline-image {
     background-color: #eee;
     text-align: center;
-    
+
+    .caption {
+      color: #444;
+      font-size: 12px;
+    }
+
     img {
       max-width: 100%;
+    }
+    p {
+      padding: 0;
+      margin-top: -4px;
     }
   }
 

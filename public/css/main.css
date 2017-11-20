@@ -92,7 +92,7 @@ body {
 
 .project-wrapper {
   background-color: #fff;
-  margin: 0px 60px; }
+  margin: 0px 60px 100px 60px; }
 
 .project .title {
   color: #333;
@@ -133,8 +133,14 @@ body {
 .project .inline-image {
   background-color: #eee;
   text-align: center; }
+  .project .inline-image .caption {
+    color: #444;
+    font-size: 12px; }
   .project .inline-image img {
     max-width: 100%; }
+  .project .inline-image p {
+    padding: 0;
+    margin-top: -4px; }
 @media only screen and (max-width: 64em) {
   .project .link-list-top {
     display: none; } }
