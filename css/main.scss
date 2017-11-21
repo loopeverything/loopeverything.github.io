@@ -51,7 +51,7 @@ body {
 
 /*================ Base layout ================*/
 html {
-  /* background-color: #333; */
+  border-top: 3px solid #7ebcbd;
 }
 
 body {
@@ -103,42 +103,102 @@ body {
 }
 
 /*================ Splash page ================*/
-.profile-pic {
-  border-radius: 50%;
-}
+.splash {
+  margin-top: 100px;
 
-.bio-blurb {
-  color: $colorBody;
-  font-family: $bodyFontFamily;
-  font-size: 24px;
-  font-weight: $bodyFontWeight;
-  line-height: 1.4;
+  .profile-pic {
+    width: 250px;
+    border-radius: 50%;
+  }
 
-  a {
-    text-decoration: none;
-    color: $colorNavLink;
-    font-family: $linkFontFamily;
+  .bio-blurb {
+    color: $colorBody;
+    font-family: $bodyFontFamily;
     font-size: 24px;
-    border-bottom: 1px solid lighten($colorNavLink, 60%);
+    font-weight: $bodyFontWeight;
+    line-height: 1.4;
 
-    &:hover {
-      color: lighten($colorNavLink, 60%);
+    a {
+      text-decoration: none;
+      color: $colorNavLink;
+      font-family: $linkFontFamily;
+      font-size: 24px;
+      border-bottom: 1px solid lighten($colorNavLink, 60%);
+
+      &:hover {
+        color: lighten($colorNavLink, 60%);
+      }
     }
   }
 }
 
-/*================ Portfolio and Project pages ================*/
-.project-thumbnail {
-  max-width: 250px;
-  margin: 0 auto;
-  background-color: #eee;
-  padding: 10px;
+/*================ Portfolio ================*/
+.portfolio {
+  .top {
+    padding-bottom: 20px;
+  }
+  h1 {
+    padding: 0;
+    margin: 20px 0px 10px 0px;
+  }
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+  .page-title {
+    color: $colorHeader;
+    font-family: $projectTitleFontFamily;
+    font-size: $projectTitleFontSize;
+    font-weight: $projectTitleFontWeight;
+    line-height: 1em;
+  }
 
-  .title {
-    text-align: center;
+  .page-subtitle {
+    color: $colorBody;
+    font-family: $projectSubtitleFontFamily;
+    font-size: $projectSubtitleFontSize;
+    font-weight: $projectSubtitleFontWeight;
+    line-height: 1.2em;
+  }
+
+  .project-thumbnail {
+    @media (max-width: 768px) {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      margin: 0;
+    }
+    padding: 0px 0px 30px 0px;
+
+    img {
+      max-width: 250px;
+      border-radius: 50%;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .title {
+      color: darken($colorBody, 30%);
+      font-size: 18px;
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .subtitle {
+      color: $colorBody;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.25em;
+      max-width: 250px;
+    }
   }
 }
 
+/*================ Project pages ================*/
 .project-wrapper {
   background-color: #fff;
   margin: 0px 60px 100px 60px;

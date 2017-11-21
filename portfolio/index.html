@@ -20,34 +20,71 @@
 </head>
 
 <body>
-	<div class="wrapper">
-		<div class="nav">
-			<div class="row center-sm end-md">
-				<ul>
-					<li><a href="/portfolio/">Portfolio</a></li>
-					<li><a href="/resume/">Resume</a></li>
-				</ul>
+	<nav>
+	  <div id="menuToggle">
+	    <input type="checkbox">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	    <ul id="menu">
+        <a href="/"><li>Home</li></a>
+	      <a href="/Portfolio/"><li>Portfolio</li></a>
+	      <a href="/Resume/"><li>Resume</li></a>
+	      <a href="/Contact/"><li>Contact</li></a>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="portfolio wrapper">
+		<div class="home-button">
+      <div class="button-image">
+        <a href="/">
+          <img src="../img/home.jpg">
+        </a>
+      </div>
+			<div class="home-text">
+				Home
 			</div>
-		</div>
-
-	<div class="row">
-
-    <div class="col-xs-4 col-xs-offset-2">
-      <div class="project-thumbnail">
-        <p><a href="/coffee-consumption-infographic/"><img src="http://via.placeholder.com/250x250"></a></p>
-        <p class="title">Coffee Consumption Infographic</p>
-      </div>
     </div>
 
-    <div class="col-xs-4">
-      <div class="project-thumbnail">
-        <p><a href="/bicycle-race-route/"><img src="http://via.placeholder.com/250x250"></a></p>
-        <p class="title">Bicycle Race Route</p>
-      </div>
-    </div>
+		<div class="top">
+			<div class="row center-xs start-sm">
+				<div class="col-xs-12">
+					<h1 class="page-title">Portfolio</h1>
+					<h2 class="page-subtitle">A Small Sample of Work</h2>
+				</div>
+			</div>
+		</div> <!-- Top row -->
 
-   </div>
- </div> <!-- Wrapper -->
+		<!-- TODO Add some kind of hover effect, maybe opacity transition? -->
+		<div class="row center-xs start-sm">
+
+	    <div class="col-xs-12 col-sm-4">
+	      <div class="project-thumbnail">
+					<div>
+						<a href="/america-loves-coffee/"><img src="infographic_thumbnail.jpg"></a>
+					</div>
+					<div>
+		        <p class="title">America Loves Coffee</p>
+						<p class="subtitle">An infographic on America's favorite caffeinated beverage.</p>
+					</div>
+	      </div>
+	    </div>
+
+	    <div class="col-xs-12 col-sm-4">
+	      <div class="project-thumbnail">
+	        <div>
+						<a href="/italy-to-austria/"><img src="route_thumbnail.jpg"></a>
+					</div>
+					<div>
+		        <p class="title">Italy to Austria</p>
+						<p class="subtitle">Routing a 3,178 kilometer biking adventure through Italy and the Alps.</p>
+					</div>
+	      </div>
+	    </div>
+
+		</div> <!-- Row -->
+	 </div> <!-- Wrapper -->
 
 </body>
 </html>
