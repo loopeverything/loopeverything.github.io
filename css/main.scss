@@ -65,7 +65,7 @@ body {
     width: 100%;
   }
   @media (min-width: 1024px) {
-    width: 1030px;
+    width: 1024px;
     margin: 0 auto;
   }
 }
@@ -281,6 +281,11 @@ body {
 }
 
 /*================ Resume ================*/
+.resume-wrapper {
+  background-color: #fff;
+  margin: 0px 60px 100px 60px;
+}
+
 .resume {
   h1 {
     padding: 0;
@@ -315,8 +320,58 @@ body {
     padding: 0;
     margin: 0;
   }
+  h3 {
+    color: darken($colorBody, 30%);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1em;
+    padding: 0;
+    margin: 10px 0px 10px 0px;
+  }
+
+  /* For resume PDF and LinkedIn link */
+  .extra-links {
+    padding-top: 6px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      float: left;
+      display: block;
+      padding-right: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $colorNavLink;
+      font-family: $linkFontFamily;
+      font-size: $linkFontSize;
+
+      &:hover {
+        color: lighten($colorNavLink, 20%);
+      }
+    }
+  }
+
+  .chart-section {
+    padding: 40px 0px;
+  }
+
+  /* Caption for charts */
+  .caption {
+    color: #444;
+    font-size: 12px;
+    line-height: 1.2em;
+  }
 
   .position {
+    padding-bottom: 10px;
+
     h3 {
       color: darken($colorBody, 30%);
       font-family: 'Roboto Condensed', sans-serif;
@@ -342,10 +397,8 @@ body {
       font-size: $bodyFontSize * 0.9;
     }
 
-    .content {
-      ul {
-
-      }
+    ul {
+      margin: 0;
     }
   }
 }

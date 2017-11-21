@@ -37,7 +37,7 @@ body {
       width: 100%; } }
   @media (min-width: 1024px) {
     .wrapper {
-      width: 1030px;
+      width: 1024px;
       margin: 0 auto; } }
 
 .nav {
@@ -181,46 +181,88 @@ body {
       color: #555555; }
 
 /*================ Resume ================*/
-.resume h1 {
-  padding: 0;
-  margin: 20px 0px;
-  font-size: 42px; }
-.resume h2 {
-  padding: 0;
-  margin: 0; }
-.resume .section {
-  padding-bottom: 20px; }
-.resume div {
-  padding: 0;
-  margin: 0; }
-.resume p {
-  padding: 0;
-  margin: 0; }
-.resume h2 {
-  color: #333;
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  font-weight: normal;
-  line-height: 1em;
-  padding: 0;
-  margin: 0; }
-.resume .position h3 {
-  color: #2b2b2b;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1em;
-  padding: 0;
-  margin: 10px 0px 10px 0px; }
-.resume .position .title {
-  color: #aaaaaa;
-  font-style: italic; }
-.resume .position .location {
-  font-style: italic;
-  font-size: 15.3px; }
-.resume .position .date {
-  font-style: italic;
-  font-size: 15.3px; }
+.resume-wrapper {
+  background-color: #fff;
+  margin: 0px 60px 100px 60px; }
+
+.resume {
+  /* For resume PDF and LinkedIn link */
+  /* Caption for charts */ }
+  .resume h1 {
+    padding: 0;
+    margin: 20px 0px;
+    font-size: 42px; }
+  .resume h2 {
+    padding: 0;
+    margin: 0; }
+  .resume .section {
+    padding-bottom: 20px; }
+  .resume div {
+    padding: 0;
+    margin: 0; }
+  .resume p {
+    padding: 0;
+    margin: 0; }
+  .resume h2 {
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1em;
+    padding: 0;
+    margin: 0; }
+  .resume h3 {
+    color: #2b2b2b;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1em;
+    padding: 0;
+    margin: 10px 0px 10px 0px; }
+  .resume .extra-links {
+    padding-top: 6px; }
+    .resume .extra-links ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0; }
+    .resume .extra-links li {
+      float: left;
+      display: block;
+      padding-right: 20px; }
+    .resume .extra-links a {
+      text-decoration: none;
+      color: #222;
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 16px; }
+      .resume .extra-links a:hover {
+        color: #555555; }
+  .resume .chart-section {
+    padding: 40px 0px; }
+  .resume .caption {
+    color: #444;
+    font-size: 12px;
+    line-height: 1.2em; }
+  .resume .position {
+    padding-bottom: 10px; }
+    .resume .position h3 {
+      color: #2b2b2b;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1em;
+      padding: 0;
+      margin: 10px 0px 10px 0px; }
+    .resume .position .title {
+      color: #aaaaaa;
+      font-style: italic; }
+    .resume .position .location {
+      font-style: italic;
+      font-size: 15.3px; }
+    .resume .position .date {
+      font-style: italic;
+      font-size: 15.3px; }
+    .resume .position ul {
+      margin: 0; }
 
 /*================ LightGallery customization ================*/
 .adjust-toolbar.lg-outer .lg-toolbar {
