@@ -269,6 +269,66 @@ body {
   }
 }
 
+/*================ Resume ================*/
+.resume {
+  .section {
+    padding-bottom: 40px;
+  }
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  h2 {
+    color: $colorHeader;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+  }
+
+  .position {
+    h3 {
+      color: darken($colorBody, 30%);
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1em;
+      padding: 0;
+      margin: 20px 0px 10px 0px;
+    }
+
+    .title {
+      color: lighten($colorBody, 20%);
+      font-style: italic;
+    }
+
+    .location {
+      font-style: italic;
+      font-size: $bodyFontSize * 0.9;
+    }
+
+    .date {
+      font-style: italic;
+      font-size: $bodyFontSize * 0.9;
+    }
+
+    .content {
+      ul {
+
+      }
+    }
+  }
+}
+
 /*================ LightGallery customization ================*/
 .adjust-toolbar.lg-outer .lg-toolbar {
   background-color: transparent;

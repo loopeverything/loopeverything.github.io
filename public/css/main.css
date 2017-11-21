@@ -171,6 +171,41 @@ body {
     .project .link-list-top a:hover, .project .link-list-bottom a:hover {
       color: #555555; }
 
+/*================ Resume ================*/
+.resume .section {
+  padding-bottom: 40px; }
+.resume div {
+  padding: 0;
+  margin: 0; }
+.resume p {
+  padding: 0;
+  margin: 0; }
+.resume h2 {
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1em;
+  padding: 0;
+  margin: 0; }
+.resume .position h3 {
+  color: #2b2b2b;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1em;
+  padding: 0;
+  margin: 20px 0px 10px 0px; }
+.resume .position .title {
+  color: #aaaaaa;
+  font-style: italic; }
+.resume .position .location {
+  font-style: italic;
+  font-size: 15.3px; }
+.resume .position .date {
+  font-style: italic;
+  font-size: 15.3px; }
+
 /*================ LightGallery customization ================*/
 .adjust-toolbar.lg-outer .lg-toolbar {
   background-color: transparent; }
