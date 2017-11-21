@@ -10,7 +10,7 @@
 	<!--<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto+Mono:300" rel="stylesheet">-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed:300" rel="stylesheet">
 	<!--<link rel="stylesheet" type="text/css" href="../public/css/main.css">-->
-  <link rel="stylesheet" type="text/css" href="/Users/alex/projects/nomstar.github.io/public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/Users/alex/projects/loopeverything.github.io/public/css/main.css">
   <link rel="stylesheet" type="text/css" href="lightgallery.min.css">
 
 	<meta property="og:url" content="https://nomstar.github.io" />
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	<div class="project project-wrapper">
+	<div id="project" class="project project-wrapper">
 		<div class="nav">
 			<div class="row center-sm end-md">
 				<ul>
@@ -35,8 +35,8 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <h1 class="title">Coffee Consumption Infographic</h1>
-        <h2 class="subtitle">America Loves Coffee</h2>
+        <h1 class="title">America Loves Coffee</h1>
+        <h2 class="subtitle">An Infographic on America's Love of Coffee</h2>
         <p class="date">October 2017</p>
       </div>
     </div>
@@ -44,23 +44,56 @@
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div class="column">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6">
-              <div class="thumbnail">
-                <img src="http://via.placeholder.com/500x300">
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-              <div class="thumbnail">
-                <img src="http://via.placeholder.com/500x300">
-              </div>
-            </div>
-          </div>
-          <!--<div id="lightgallery">
-            <a href="infographic.png">
-              <img src="infographic.png">
-            </a>
-          </div>-->
+					<div id="lightgallery">
+	          <div class="row">
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image1.jpg">
+		                <img src="image1_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image2.jpg">
+	                	<img src="image2_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	          </div>
+						<div class="row">
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image3.jpg">
+		                <img src="image3_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image4.jpg">
+	                	<img src="image4_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	          </div>
+						<div class="row">
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image5.jpg">
+		                <img src="image5_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image6.jpg">
+	                	<img src="image6_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	          </div>
+					</div> <!-- lightgallery -->
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="link-list-top">
@@ -97,7 +130,7 @@
 						A mash-up of graphics and bivariate choropleth maps about America's favorite caffeinated beverage.
 					</p>
 					<p>
-						The America Loves Coffee infographic is the result of a Visual Storytelling challenge as part of the Graphic Design in Cartography course I was taking. For the challenge we were tasked to create a longform infographic to tell a compelling visual story. We were given freedom when choosing the story subject, so naturally, I picked my favorite thing: coffee. Outside of telling a story, the only other requirements were that it included at least one map employing advanced cartographic techniques, such as bivariate or multivariate mapping, and a supporting chart or graphic.
+						The America Loves Coffee infographic was made for a Visual Storytelling challenge as part of the Graphic Design in Cartography course I was taking. For the challenge we were tasked to create a longform infographic to tell a compelling visual story. We were given freedom when choosing the story subject, so naturally, I picked my favorite thing: coffee. Outside of telling a story, the only other requirements were that it included at least one map employing advanced cartographic techniques, such as bivariate or multivariate mapping, and a supporting chart or graphic.
 					</p>
 					<p>
 						Coffee is sold just about everywhere these days, as non-traditional sellers like McDonald’s and 7-Eleven are busy expanding their gourmet offerings in order to compete with traditional coffee shops. To keep things simple, I focused on the top two traditional coffee providers in the United States: Starbucks and Dunkin’ Donuts. Besides simplifying matters, narrowing the focus also helped with visualization, as their power bases are located on opposite sides of the country.
@@ -106,14 +139,18 @@
 						This led to the infographic’s first bivariate map: a simple portrayal of store density for the two chains. Shades of red and blue reflect the presence of Starbucks and Dunkin’ Donuts on the West and East coasts, respectively, while a blend of colors represents their shared areas, primarily around major cities. An inset of New York City was added to provide an example of store density in some metropolitan areas.
 					</p>
 					<div class="inline-image">
-						<img src="http://via.placeholder.com/540x300">
+						<a class="lightgallery-image-inline" href="image2.jpg">
+							<img src="image2_thumbnail.jpg">
+						</a>
 						<p class="caption">Starbucks and Dunkin' Donuts store locations</p>
 					</div>
 					<p>
 						From there the store locations from both chains were combined with county population data provided by the Census Bureau to depict the relationship between store and population densities. While not exactly groundbreaking--it should come as no surprise that areas with more people will also have more stores--it does succeed in providing some insight, such as area where the chains may have opportunities for growth, or where they may have expanded too much.
 					</p>
 					<div class="inline-image">
-						<img src="http://via.placeholder.com/540x300">
+						<a class="lightgallery-image-inline" href="image3.jpg">
+							<img src="image3_thumbnail.jpg">
+						</a>
 						<p class="caption">Combined stores compared with county population density</p>
 					</div>
         </div>
@@ -124,14 +161,18 @@
 						The final bivariate map compares store density with average income by county. Used in conjunction with the population map, it is interesting to see how population and income has dictated past growth of the two chains. They can also be used to highlight future growth--areas of the country, specifically the Midwest, that have yet to be conquered.
 					</p>
 					<div class="inline-image">
-						<img src="http://via.placeholder.com/540x300">
+						<a class="lightgallery-image-inline" href="image4.jpg">
+							<img src="image4_thumbnail.jpg">
+						</a>
 						<p class="caption">Combined stores compared with average income by county</p>
 					</div>
 					<p>
 						While the focus of the infographic was on coffee consumption in the United States, I wanted to round of the story by relating it to the rest of the world. To help put context on the story so far I added a world map of the top importers and exporters of coffee, and supported it with a chart showing global production and consumption figures.
 					</p>
 					<div class="inline-image">
-						<img src="http://via.placeholder.com/540x300">
+						<a class="lightgallery-image-inline" href="image5.jpg">
+							<img src="image5_thumbnail.jpg">
+						</a>
 						<p class="caption">Top coffee importers and exporters around the world</p>
 					</div>
 					<p>
@@ -142,7 +183,7 @@
 					</p>
 					<h3>Tools and Data</h3>
 					<p>
-						The bivariate maps and the inset of New York City were produced using the open-source tools QGIS and GRASS GIS. Legends, labels, and general touch-up was done in Illustrator, with the final outputs generated in Photoshop.
+						Most of the initial data clean-up and preparation was done in GRASS GIS. The bivariate maps and the inset of New York City themselves were produced using QGIS. Legends, labels, and general touch-up was done in Illustrator, with the final outputs generated in Photoshop.
 					</p>
 					<p>
 						Population and income data was provided by the US Census Bureau and the US Bureau of Economic Analysis, respectively. World coffee production and demand figures were provided by the USDA Foreign Agriculture Service, while the consumption statistics of daily drinkers in the US was provided by the National Coffee Association USA. And a special thanks is due to Joshua Stevens for his excellent article on bivariate choropleth maps!
@@ -181,8 +222,25 @@
 
 	<!--<script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.0.1/lib/js/lightgallery.js" integrity="sha256-9zUzzw7FbZhHCIYo4KEvSJ1gLXcpMeuK4UUZwToyrjw=" crossorigin="anonymous"></script>-->
   <script src="lightgallery.min.js"></script>
+	<script src="lg-zoom.min.js"></script>
   <script>
     //lightGallery(document.getElementById('lightgallery'));
+		lightGallery(document.getElementById('lightgallery'), {
+		    selector: '.lightgallery-image',
+				addClass: 'adjust-toolbar',
+				download: false,
+				zoom: true,
+				actualSize: false,
+				hideBarsDelay: 3000
+		});
+		lightGallery(document.getElementById('project'), {
+		    selector: '.lightgallery-image-inline',
+				addClass: 'adjust-toolbar',
+				download: false,
+				zoom: true,
+				actualSize: false,
+				hideBarsDelay: 3000
+		});
   </script>
 </body>
 </html>

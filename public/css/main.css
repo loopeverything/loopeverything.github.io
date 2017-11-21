@@ -127,7 +127,7 @@ body {
   font-weight: 300;
   line-height: 1.2em; }
 .project .thumbnail {
-  background-color: #999; }
+  padding-bottom: 10px; }
   .project .thumbnail img {
     max-width: 100%; }
 .project .inline-image {
@@ -165,5 +165,8 @@ body {
     font-size: 16px; }
     .project .link-list-top a:hover, .project .link-list-bottom a:hover {
       color: #555555; }
+
+.adjust-toolbar.lg-outer .lg-toolbar {
+  background-color: transparent; }
 
 /*# sourceMappingURL=main.css.map */

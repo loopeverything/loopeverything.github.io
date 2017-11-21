@@ -192,8 +192,8 @@ body {
   }
 
   .thumbnail {
-    background-color: #999;
-
+    padding-bottom: 10px;
+    
     img {
       max-width: 100%;
     }
@@ -256,4 +256,8 @@ body {
       }
     }
   }
+}
+
+.adjust-toolbar.lg-outer .lg-toolbar {
+  background-color: transparent;
 }
