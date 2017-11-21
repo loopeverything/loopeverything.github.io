@@ -19,18 +19,35 @@
 	<meta name="description" content="Alex Thompson | Resume | I’m a graduate student at the University of Wisconsin-Madison, studying Cartography and GIS." />
 </head>
 <body>
+  <nav>
+	  <div id="menuToggle">
+	    <input type="checkbox">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	    <ul id="menu">
+        <a href="/"><li>Home</li></a>
+	      <a href="/Portfolio/"><li>Portfolio</li></a>
+	      <a href="/Resume/"><li>Resume</li></a>
+	      <a href="/Contact/"><li>Contact</li></a>
+	    </ul>
+	  </div>
+	</nav>
+
   <div class="resume wrapper">
-    <div class="nav">
-			<div class="row center-sm end-md">
-				<ul>
-					<li><a href="/portfolio/">Portfolio</a></li>
-					<li><a href="/resume/">Resume</a></li>
-				</ul>
+    <div class="home-button">
+      <div class="button-image">
+        <a href="/">
+          <img src="../img/home.jpg">
+        </a>
+      </div>
+			<div class="home-text">
+				Home
 			</div>
-		</div>
+    </div>
 
     <div class="section">
-      <div class="row center-xs">
+      <div class="row">
         <div class="col-xs-12">
           <h1>Alex Thompson</h1>
           <p>
@@ -225,6 +242,50 @@
       </div> <!-- Progress Energy -->
 
     </div> <!-- Work section -->
+
+    <div class="section">
+      <h2>Technical Skills</h2>
+      <div class="position">
+        <h3>Geospatial Analysis and Data Management</h3>
+        <p>
+          <ul>
+            <li>ArcGIS</li>
+            <li>QGIS</li>
+            <li>PostGIS</li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="position">
+        <h3>Front-end Design</h3>
+        <p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="position">
+        <h3>Web Application Development</h3>
+        <p>
+          <ul>
+            <li>PHP</li>
+            <li>Laravel</li>
+            <li>MySQL</li>
+            <li>C#</li>
+            <li>ASP.NET</li>
+          </ul>
+        </p>
+      </div>
+    </div> <!-- Technical skills -->
+
+    <div class="section">
+
+    </div> <!-- Extras, PDF, LinkedIn, etc -->
   </div>
 </body>
 </html>
