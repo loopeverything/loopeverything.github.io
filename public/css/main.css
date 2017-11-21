@@ -131,7 +131,6 @@ body {
   .project .thumbnail img {
     max-width: 100%; }
 .project .inline-image {
-  background-color: #eee;
   text-align: center; }
   .project .inline-image .caption {
     color: #444;
@@ -141,6 +140,12 @@ body {
   .project .inline-image p {
     padding: 0;
     margin-top: -4px; }
+.project .email-note {
+  font-size: 14px; }
+  .project .email-note a {
+    font-size: inherit !important; }
+  .project .email-note p {
+    line-height: 1.4em !important; }
 @media only screen and (max-width: 64em) {
   .project .link-list-top {
     display: none; } }
@@ -166,6 +171,7 @@ body {
     .project .link-list-top a:hover, .project .link-list-bottom a:hover {
       color: #555555; }
 
+/*================ LightGallery customization ================*/
 .adjust-toolbar.lg-outer .lg-toolbar {
   background-color: transparent; }
 

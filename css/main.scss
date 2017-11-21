@@ -193,14 +193,13 @@ body {
 
   .thumbnail {
     padding-bottom: 10px;
-    
+
     img {
       max-width: 100%;
     }
   }
 
   .inline-image {
-    background-color: #eee;
     text-align: center;
 
     .caption {
@@ -214,6 +213,18 @@ body {
     p {
       padding: 0;
       margin-top: -4px;
+    }
+  }
+
+  .email-note {
+    font-size: 14px;
+
+    a {
+      font-size: inherit !important;
+    }
+
+    p {
+      line-height: 1.4em !important;
     }
   }
 
@@ -258,6 +269,7 @@ body {
   }
 }
 
+/*================ LightGallery customization ================*/
 .adjust-toolbar.lg-outer .lg-toolbar {
   background-color: transparent;
 }
