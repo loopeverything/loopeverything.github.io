@@ -246,6 +246,23 @@ body {
     line-height: 10px;
   }
 
+  .scenario {
+    background-color: #f4f4f4;
+    color: darken($colorBody, 40%);
+    padding: 10px 10px 5px 10px !important;
+    font-size: $bodyFontSize * 0.9;
+    line-height: 1.5em;
+    text-align: justify;
+    border-radius: 8px;
+  }
+
+  .requirements {
+    ~ ul {
+      color: darken($colorBody, 20%);
+      font-size: $bodyFontSize * 0.9;
+    }
+  }
+
   .column {
     p {
       padding:0;
