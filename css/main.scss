@@ -118,7 +118,7 @@ body {
     font-weight: $bodyFontWeight;
     line-height: 1.4;
   }
-  
+
   a {
     text-decoration: none;
     color: $colorNavLink;
@@ -129,6 +129,23 @@ body {
     &:hover {
       color: lighten($colorNavLink, 60%);
     }
+  }
+}
+
+/*================ Connect ================*/
+.hosted-by {
+  color: lighten($colorBody, 30%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 70px;
+  }
+
+  a {
+    text-decoration: none;
+    border: 0;
   }
 }
 
