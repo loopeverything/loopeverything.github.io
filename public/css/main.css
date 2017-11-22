@@ -62,26 +62,27 @@ body {
 .box {
   padding: 0px 20px; }
 
+.home-pic {
+  width: 250px;
+  border-radius: 50%; }
+
 /*================ Splash page ================*/
 .splash {
   margin-top: 100px; }
-  .splash .profile-pic {
-    width: 250px;
-    border-radius: 50%; }
   .splash .bio-blurb {
     color: #777;
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 300;
     line-height: 1.4; }
-    .splash .bio-blurb a {
-      text-decoration: none;
-      color: #222;
-      font-family: "Roboto Condensed", sans-serif;
-      font-size: 24px;
-      border-bottom: 1px solid #bbbbbb; }
-      .splash .bio-blurb a:hover {
-        color: #bbbbbb; }
+  .splash a {
+    text-decoration: none;
+    color: #222;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 24px;
+    border-bottom: 1px solid #bbbbbb; }
+    .splash a:hover {
+      color: #bbbbbb; }
 
 /*================ Portfolio ================*/
 .portfolio .top {
