@@ -8,13 +8,10 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed:300" rel="stylesheet">
-	<!--<link rel="stylesheet" type="text/css" href="../public/css/main.css">-->
-  <!--<link rel="stylesheet" type="text/css" href="/Users/alex/projects/loopeverything.github.io/public/css/main.css">-->
-  <!--<link rel="stylesheet" type="text/css" href="lightgallery.min.css">-->
-	<!--<link rel="stylesheet" type="text/css" href="{{ '/public/css/main.css' | relative_url }}">
-  <link rel="stylesheet" type="text/css" href="{{ '/public/css/lightgallery.min.css' | relative_url }}">-->
-	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
-	<link rel="stylesheet" type="text/css" href="/public/css/lightgallery.min.css">
+  <!--<link rel="stylesheet" type="text/css" href="/Users/alex/projects/loopeverything.github.io/public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/Users/alex/projects/loopeverything.github.io/public/css/lightgallery.min.css">-->
+	<!--<link rel="stylesheet" type="text/css" href="/public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/lightgallery.min.css">-->
 
 	<meta property="og:url" content="https://nomstar.github.io" />
 	<meta property="og:site_name" content="Alex Thompson | Portfolio" />
@@ -53,7 +50,7 @@
 		<div class="home-button">
       <div class="button-image">
         <a href="/">
-          <img src="../../img/home.jpg">
+          <img src="/img/home.jpg">
         </a>
       </div>
 			<div class="home-text">
@@ -76,47 +73,31 @@
 	          <div class="row">
 	            <div class="col-xs-12 col-sm-6">
 	              <div class="thumbnail">
-									<a class="lightgallery-image" href="infographic_lo.jpg">
-		                <img src="image1_thumbnail.jpg">
+									<a class="lightgallery-image" href="route_lo.jpg">
+		                <img src="route_lo_thumbnail.jpg">
 									</a>
 	              </div>
 	            </div>
+	            <div class="col-xs-12 col-sm-6">
+	              <div class="thumbnail">
+									<a class="lightgallery-image" href="image1.jpg">
+	                	<img src="image1_thumbnail.jpg">
+									</a>
+	              </div>
+	            </div>
+	          </div>
+						<div class="row">
 	            <div class="col-xs-12 col-sm-6">
 	              <div class="thumbnail">
 									<a class="lightgallery-image" href="image2.jpg">
-	                	<img src="image2_thumbnail.jpg">
+		                <img src="image2_thumbnail.jpg">
 									</a>
 	              </div>
 	            </div>
-	          </div>
-						<div class="row">
 	            <div class="col-xs-12 col-sm-6">
 	              <div class="thumbnail">
 									<a class="lightgallery-image" href="image3.jpg">
-		                <img src="image3_thumbnail.jpg">
-									</a>
-	              </div>
-	            </div>
-	            <div class="col-xs-12 col-sm-6">
-	              <div class="thumbnail">
-									<a class="lightgallery-image" href="image4.jpg">
-	                	<img src="image4_thumbnail.jpg">
-									</a>
-	              </div>
-	            </div>
-	          </div>
-						<div class="row">
-	            <div class="col-xs-12 col-sm-6">
-	              <div class="thumbnail">
-									<a class="lightgallery-image" href="image5.jpg">
-		                <img src="image5_thumbnail.jpg">
-									</a>
-	              </div>
-	            </div>
-	            <div class="col-xs-12 col-sm-6">
-	              <div class="thumbnail">
-									<a class="lightgallery-image" href="image6.jpg">
-	                	<img src="image6_thumbnail.jpg">
+	                	<img src="image3_thumbnail.jpg">
 									</a>
 	              </div>
 	            </div>
@@ -145,7 +126,7 @@
 						</div>
 					</div>
 
-        </div>
+        </div> <!-- Column -->
       </div>
       <div class="col-xs-12 col-md-4">
         <div class="column">
@@ -188,6 +169,17 @@
 					<p>
 						Fortunately, things were much easier for this exercise! ArcGIS has some rather useful networking tools with the Network Analyst extension, but in this case I went with the My Maps tool that is part of Google. It was a simple matter to plot a route through Google Maps and then save it as a KML file. From there, I imported the new KML file into ArcMap, split it into points and lines, and saved each separately as the route points and stages.
 					</p>
+					<div class="inline-image">
+						<a class="lightgallery-image-inline" href="inline1.jpg">
+							<img src="inline1_thumbnail.jpg">
+						</a>
+						<p class="caption">My Maps tool by Google</p>
+					</div>
+
+        </div> <!-- Column -->
+      </div> <!-- Left col -->
+      <div class="col-xs-12 col-md-4">
+        <div class="column">
 					<h3>Data Collection and Preparation</h3>
 					<p>
 						Basic terrain representation used detailed and generalized hillshades for shaded relief, combined with land cover symbolizing terrain coverage.
@@ -195,11 +187,6 @@
 					<p>
 						For the hillshades, 15” DEMs were downloaded over the area, and were then mosaiced and merged. This new raster dataset was then resampled to match the resolution of the land cover. From there, two hillshades were created: one with a higher z-factor to exaggerate the terrain features, and another, more generalized version with lower z-factors.
 					</p>
-
-        </div> <!-- Column -->
-      </div> <!-- Left col -->
-      <div class="col-xs-12 col-md-4">
-        <div class="column">
 					<p>
 						For the land cover, I started by removing the water features, as they would be better represented using vector in the final product. Oceans and major water bodies were first extracted using a generic world countries polygon, and then the minor lakes and larger rivers were removed by their raster value with the help of the Nibble geoprocessing function. The remaining land cover was symbolized across the following types: sparse and barren; wood areas; grassland and shrubland; cropland and pasture; and urban areas. Finally, each type was then exported separately to make them easier to work with while post-processing in Photoshop and Illustrator.
 					</p>
@@ -234,25 +221,21 @@
 			<div class="col-xs-12">
 				<div class="link-list-bottom">
 					<h3>External Resources</h3>
+					<div class="email-note">
+						<p>If you would like to use this product, please email me at <a href="mailto:alex@alexthompson.work">alex@alexthompson.work</a>.</p>
+					</div>
+					<h3>External Resources</h3>
 					<div>
-						<p><a href="https://www.census.gov/data/datasets/2016/demo/popest/counties-total.html" target="_blank">US Population by County</a></p>
-						<p>US Census Bureau</p>
+						<p><a href="http://www.viewfinderpanoramas.org/" target="_blank">15" Digital Elevation Models</a></p>
+						<p>Viewfinder Panoramas</p>
 					</div>
 					<div>
-						<p><a href="https://www.bea.gov/itable/index.cfm" target="_blank">Regional GDP and Personal Income</a></p>
-						<p>US Bureau of Economic Analysis</p>
+						<p><a href="http://www.fao.org/geonetwork/srv/en/main.home" target="_blank">Global Land Cover Share Database (2013)</a></p>
+						<p>Food and Agriculture Organization</p>
 					</div>
 					<div>
-						<p><a href="https://www.fas.usda.gov/data/coffee-world-markets-and-trade" target="_blank">Coffee: World Markets and Trade</a></p>
-						<p>USDA Foreign Agriculture Service</p>
-					</div>
-					<div>
-						<p><a href="http://www.ncausa.org/Industry-Resources/Market-Research/National-Coffee-Drinking-Trends-Report" target="_blank">National Coffee Drinking Trends</a></p>
-						<p>National Coffee Association USA</p>
-					</div>
-					<div>
-						<p><a href="https://worldcoffeeresearch.org/" target="_blank">World Coffee Research</a></p>
-						<p>World Coffee Research</p>
+						<p><a href="http://www.naturalearthdata.com/downloads/" target="_blank">Bathymetry and Populated Places</a></p>
+						<p>Natural Earth</p>
 					</div>
 				</div>
 			</div>
