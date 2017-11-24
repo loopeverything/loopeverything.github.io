@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed:300" rel="stylesheet">
   <!--<link rel="stylesheet" type="text/css" href="/Users/alex/projects/loopeverything.github.io/public/css/main.css">-->
-	<!--<link rel="stylesheet" type="text/css" href="{{ '/public/css/main.css' | relative_url }}">-->
 	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
 
 	<meta property="og:url" content="https://loopeverything.github.io" />
@@ -44,10 +43,12 @@
 	</nav>
 
   <div class="resume resume-wrapper">
+
     <div class="home-button">
       <div class="button-image">
         <a href="/">
-          <img src="/img/home.jpg">
+          <img class="bottom" src="/public/img/home_hover.jpg">
+					<img class="top" src="/public/img/home.jpg">
         </a>
       </div>
 			<div class="home-text">
@@ -330,8 +331,6 @@
 
   </div> <!-- Resume Resume-wrapper -->
 
-  <!--<script src="https://cdnjs.com/libraries/Chart.js"></script>-->
-  <!--<script src="chart.js"></script>-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.1/dist/Chart.bundle.min.js" integrity="sha256-N4u5BjTLNwmGul6RgLoESPNqDFVUibVuOYhP4gJgrew=" crossorigin="anonymous"></script>
   <script>
     var gisToolsCtx = document.getElementById("gis-tools-chart");

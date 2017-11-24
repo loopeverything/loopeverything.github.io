@@ -613,20 +613,34 @@ body {
   img {
     width: 80px;
     border-radius: 50%;
+
+    position:absolute;
+    left:0;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -o-transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
   }
-/*
-  &:hover .home-text {
-    opacity: 1;
-  }
-*/
+
   .button-image {
+    position: relative;
+    width: 80px;
+    height: 80px;
+
     &:hover ~ .home-text {
       opacity: 1;
+    }
+
+    img.top:hover {
+      opacity: 0;
     }
   }
 
   .home-text {
     color: #222;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -o-transition: opacity 0.6s ease-in-out;
     transition: opacity 0.6s ease-in-out;
     padding-left: 10px;
     opacity: 0;
