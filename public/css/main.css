@@ -147,7 +147,13 @@ body {
 /*================ Project pages ================*/
 .project-wrapper {
   background-color: #fff;
-  margin: 0px 60px 100px 60px; }
+  /* Decrease margin on smaller screens */ }
+  @media (max-width: 768px) {
+    .project-wrapper {
+      margin: 0px 15px 100px 15px; } }
+  @media (min-width: 768px) {
+    .project-wrapper {
+      margin: 0px 60px 100px 60px; } }
 
 .project h1 {
   padding: 0;
@@ -249,7 +255,13 @@ body {
 /*================ Resume ================*/
 .resume-wrapper {
   background-color: #fff;
-  margin: 0px 60px 100px 60px; }
+  /* Decrease margin on smaller screens */ }
+  @media (max-width: 768px) {
+    .resume-wrapper {
+      margin: 0px 15px 100px 15px; } }
+  @media (min-width: 768px) {
+    .resume-wrapper {
+      margin: 0px 60px 100px 60px; } }
 
 .resume {
   /* For resume PDF and LinkedIn link */
@@ -303,6 +315,9 @@ body {
       .resume .extra-links a:hover {
         color: #555555; }
   .resume .chart-section {
+    max-width: 100%; }
+  .resume .side-chart-section {
+    max-width: 450px;
     padding: 40px 0px; }
   .resume .caption {
     color: #444;
