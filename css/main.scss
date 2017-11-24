@@ -152,7 +152,7 @@ body {
 /*================ Portfolio ================*/
 .portfolio {
   .top {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
   h1 {
     padding: 0;
@@ -612,8 +612,8 @@ body {
 
   img {
     width: 80px;
+    height: 80px;
     border-radius: 50%;
-
     position:absolute;
     left:0;
     -webkit-transition: opacity 0.6s ease-in-out;
@@ -630,7 +630,7 @@ body {
     &:hover ~ .home-text {
       opacity: 1;
     }
-
+    
     img.top:hover {
       opacity: 0;
     }

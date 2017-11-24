@@ -98,7 +98,7 @@ body {
 
 /*================ Portfolio ================*/
 .portfolio .top {
-  padding-bottom: 20px; }
+  margin-bottom: 20px; }
 .portfolio h1 {
   padding: 0;
   margin: 20px 0px 10px 0px; }
@@ -436,6 +436,7 @@ body {
   align-items: center; }
   .home-button img {
     width: 80px;
+    height: 80px;
     border-radius: 50%;
     position: absolute;
     left: 0;
