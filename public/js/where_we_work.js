@@ -225,9 +225,8 @@ function createOrUpdateLegend()
 
       var div = L.DomUtil.create('div', 'info legend');
 
-      div.innerHTML += "<div><div class='legend-total'></div><div class='legend-label' style='margin-top:4px;'>Total Employment</div></div><div class='clear'></div><div style='padding-bottom:10px;'></div>";
-      div.innerHTML += "<div><div class='legend-industry'></div><div class='legend-label' style='margin-top:3px;'>Industry</div></div>";
-
+      div.innerHTML += "<div><div class='legend-industry'></div><div class='legend-label' style='margin-top:3px;'>Industry</div></div><div class='clear'></div><div style='padding-bottom:10px;'></div>";
+      div.innerHTML += "<div><div class='legend-total'></div><div class='legend-label' style='margin-top:4px;'>Total Employment</div></div>";
 
       return div;
     };
@@ -464,7 +463,7 @@ function updateLayers()
   // Create the new totals layer, if With is selected
   if (withSelect == "with")
     totalsLayer = createPropSymbols(mapData, "EST_VC01|" + year);
-    
+
   // Create the new industry layer
   industryLayer = createPropSymbols(mapData, industry + "|" + year);
 }
