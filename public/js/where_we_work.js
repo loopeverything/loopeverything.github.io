@@ -450,6 +450,7 @@ function updateLayers()
   // Update the industry and year globals
   industry = $("#industry-select").val();
   year = $("#year-select").val();
+  var withSelect = $("#totals-select").val();
 
   // Remove the totals layer
   map.removeLayer(totalsLayer);
@@ -460,9 +461,10 @@ function updateLayers()
   // Update the legend
   createOrUpdateLegend();
 
-  // Create the new totals layer
-  totalsLayer = createPropSymbols(mapData, "EST_VC01|" + year);
-
+  // Create the new totals layer, if With is selected
+  if (withSelect == "with")
+    totalsLayer = createPropSymbols(mapData, "EST_VC01|" + year);
+    
   // Create the new industry layer
   industryLayer = createPropSymbols(mapData, industry + "|" + year);
 }
