@@ -1,0 +1,128 @@
+/*================ Color variables ================*/
+/*================ Font variables ================*/
+/*================ Where We Work ================*/
+.where-we-work h1 {
+  padding: 0;
+  margin: 20px 0px 10px 0px; }
+.where-we-work h2 {
+  padding: 0;
+  margin: 0; }
+.where-we-work .title {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: normal;
+  line-height: 1em; }
+.where-we-work .subtitle {
+  color: #777;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2em; }
+.where-we-work h3 {
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22.1px;
+  font-weight: 300;
+  line-height: 10px; }
+.where-we-work .sub-subtitle {
+  color: #c4c4c4;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16.8px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.2em; }
+.where-we-work #show-me-this {
+  font-size: 22.1px;
+  margin: 10px 0px 30px 0px; }
+  .where-we-work #show-me-this select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    background: #fff;
+    background-image: none;
+    border: 0px;
+    box-shadow: none;
+    font-size: 22.1px;
+    font-weight: 300;
+    text-decoration: underline;
+    text-align-last: center;
+    text-align: center;
+    cursor: pointer; }
+  .where-we-work #show-me-this #compute_select {
+    display: none; }
+.where-we-work #industry-chart-section {
+  display: none; }
+.where-we-work #industry-chart-title {
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22.1px;
+  font-weight: 300;
+  line-height: 10px;
+  text-align: center;
+  margin: 40px 0px 4px 0px;
+  padding: 0; }
+.where-we-work #totals-chart-section {
+  display: none; }
+.where-we-work #totals-chart-title {
+  color: #111111;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22.1px;
+  font-weight: 300;
+  line-height: 10px;
+  text-align: center;
+  margin: 40px 0px 4px 0px;
+  padding: 0; }
+.where-we-work .caption {
+  color: #444;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: center; }
+.where-we-work .footer {
+  color: #444;
+  font-size: 12px;
+  line-height: 1.3em;
+  margin: 20px 0px; }
+  .where-we-work .footer a {
+    color: #000; }
+.where-we-work .legend {
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px; }
+  .where-we-work .legend .legend-total {
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid rgba(72, 81, 88, 0.85);
+    background: rgba(72, 81, 88, 0.65);
+    width: 25px;
+    height: 25px;
+    margin: 0px 4px 0px 0px;
+    float: left; }
+  .where-we-work .legend .legend-industry {
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid rgba(190, 186, 218, 0.85);
+    background: rgba(190, 186, 218, 0.65);
+    width: 20px;
+    height: 20px;
+    margin: 0px 4px 0px 4px;
+    float: left; }
+  .where-we-work .legend .legend-label {
+    float: left;
+    /* margin-top: 3px; */
+    color: #444;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 12px; }
+  .where-we-work .legend .clear {
+    clear: both; }
+.where-we-work .arrows img {
+  width: 20px;
+  height: 20px;
+  filter: invert(0.5) sepia(0) saturate(10) hue-rotate(175deg); }
+.where-we-work #map {
+  height: 500px; }
+
+/*# sourceMappingURL=where_we_work.css.map */
