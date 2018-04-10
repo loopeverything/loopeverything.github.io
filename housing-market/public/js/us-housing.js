@@ -1,17 +1,19 @@
 // Map SVG dimensions
+// var margin = { top: 20, right: 10, bottom: 20, left: 10 };
+// var width = 960 - margin.left - margin.right;
+// var height = 500 - margin.top - margin.bottom;
 var width = 960;
 var height = 600;
 
 var map; // Map SVG element
 var path = d3.geoPath();
-var economic;
 var counties; // County feature collection cache
 var states; // State feature collection cache
 
 // Chart variables
 // TODO: Wrap these in a Chart class?
 var chart; // Chart SVG element
-var chartMargin = { top: 20, right: 20, bottom: 30, left: 40 };
+var chartMargin = { top: 20, right: 20, bottom: 30, left: 60 };
 var chartWidth = 960 - chartMargin.left - chartMargin.right;
 var chartHeight = 500 - chartMargin.top - chartMargin.bottom;
 var xValue;
@@ -39,7 +41,7 @@ attributes.forEach(function (attribute) {
 });
 
 // Cache object for saving county-state association
-// var stateToCounty = {};
+var stateCounties = {};
 
 // Set up the map SVG space, queue data, and then load it when it's ready
 function makeMap()
@@ -48,6 +50,12 @@ function makeMap()
         .attr("width", width)
         .attr("height", height);
 
+    // map = d3.select(".map-container").append("svg")
+    //     .attr("width", width + margin.left + margin.right)
+    //     .attr("height", height + margin.top + margin.bottom)
+    //     .append("g")
+    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
     d3.queue()
         .defer(d3.csv, "/housing-market/data/us_economic.csv", function (d) {
             // Loop through the attributes and cache the data for each
@@ -55,28 +63,31 @@ function makeMap()
                 econData[attribute].set(d.id, d[attribute]);
             });
 
-            // // Get the state ID for this county
-            // var stateID = d.id.substring(0, 2); // Get the state ID
+            // Get the state ID for this county
+            var stateID = d.id.substring(0, 2); // Get the state ID
 
-            // // If the array hasn't been created -> create it
-            // if (!stateToCounty[stateID])
-            //     stateToCounty[stateID] = new Array();
+            // If the array hasn't been created -> create it
+            if (!stateCounties[stateID])
+                stateCounties[stateID] = new Array();
 
-            // // Push the county ID to the state
-            // stateToCounty[stateID].push(d.id);
+            // Push the county ID to the state
+            stateCounties[stateID].push(d.id);
         })
         .defer(d3.json, "https://d3js.org/us-10m.v1.json")
         .await(ready);
 
-    function ready(error, _economic, mapData) {
+    function ready(error, economic, mapData) {
         if (error) throw error;
 
         console.log("Starting");
 
         // Cache the county and state feature collections
-        economic = _economic;
         counties = topojson.feature(mapData, mapData.objects.counties);
         states = topojson.feature(mapData, mapData.objects.states);
+
+        // console.log(counties);
+        // console.log(d3.keys(counties));
+        // console.log(d3.entries(counties));
         
         map.selectAll(".county")
             .data(counties.features)
@@ -95,7 +106,7 @@ function makeMap()
             .on("mouseover", highlight)
             .on("mouseout", unhighlight)
             .on("mousemove", moveLabel)
-            .on("click", countyClicked); // FIXME: Broken
+            .on("click", countyClicked);
 
         map.selectAll(".state")
             .data(states.features)
@@ -156,8 +167,18 @@ function unhighlight(d)
     destroyLabel();
 }
 
+function highlightBar(id)
+{
+    createLabel(id, false);
+}
+
+function unhighlightBar(id)
+{
+    destroyLabel();
+}
+
 // Create the county label
-function createLabel(id)
+function createLabel(id, countyHighlight = true)
 {
     // Make sure there is data to display
     var value = parseFloat(econData[selectedAttribute].get(id));
@@ -194,7 +215,9 @@ function createLabel(id)
     var content = "<p class='title'>" + econData["county"].get(id) + "</p>";
     content += "<p class='subtitle'>" + subtitle + "</p>";
     content += "<p class='body'>" + value + "</p>";
-    content += "<p class='more-info'>Click for state information</p>";
+
+    if (countyHighlight)
+        content += "<p class='more-info'>Click for state information</p>";
 
     var label = d3.select("body")
         .append("div")
@@ -267,22 +290,26 @@ function getColor(value)
         return '#333333';
     };
 }
-
 // Create chart for state ID
 // https://bl.ocks.org/mbostock/5977197
-function createChart(state)
-{
+function createChart(state) {
     if (chart)
         d3.select(".chart").remove();
 
-    var data = [];
-    econData[selectedAttribute].each(function (val, key) {
-        var thisState = key.substring(0, 2);
+    // console.log(stateCounties[state]);
 
-        if (thisState == state) {
-            data.push(val);
-        }
-    });
+    // stateCounties[state].foreach(function(d) {
+    //     console.log("d: " + d + " val: " + econData[selectedAttribute].get(d));
+    // });
+
+    // for (var key in stateCounties[state])
+    // {
+    //     console.log(key, stateCounties[state][key]);
+    //     console.log(econData[selectedAttribute].get(stateCounties[state][key]));
+    // }
+
+    // _stateCounties = Array.from(stateCounties[state]);
+    // return;
 
     // X-axis scale and values
     xValue = function (d) { return d; };
@@ -291,7 +318,12 @@ function createChart(state)
     xAxis = d3.axisBottom(xScale);
 
     // Y-axis scale and values
-    yValue = function (d) { return d; };
+    yValue = function (d) { 
+        // return d;
+        // console.log("Val: " + econData[selectedAttribute].get(d));
+        
+        return econData[selectedAttribute].get(d);
+    };
     yScale = d3.scaleLinear().range([chartHeight, 0]);
     yMap = function (d) { return yScale(yValue(d)); };
     yAxis = d3.axisLeft(yScale);
@@ -304,9 +336,21 @@ function createChart(state)
         .append("g")
         .attr("transform", "translate(" + chartMargin.left + "," + chartMargin.top + ")");
 
+    // Get max value for domain
+    var maxValue = 0;
+    for (var key in stateCounties[state]) {
+        if (parseFloat(econData[selectedAttribute].get(stateCounties[state][key])) > maxValue)
+            maxValue = econData[selectedAttribute].get(stateCounties[state][key]);
+    }
+    // maxValue += (maxValue * 0.001);
+    console.log("Max: " + maxValue);
+    
+    // Update the domain for the y-scale values
+    yScale.domain([0, maxValue]);
+
     // Add the y-axis
     chart.append("g")
-        .attr("class", "y axis")
+        .attr("class", "y-axis")
         .call(yAxis)
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -315,34 +359,42 @@ function createChart(state)
         .style("text-anchor", "end")
         .text("Value");
 
-    // Update the domain for the y-scale values
-    yScale.domain([0, d3.max(data, yValue)]);
-
     // Add the bars
     chart.selectAll(".bar")
-        .data(data)
+        .data(stateCounties[state])
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("fill", function(d) {
-            return getColor(d);
+        .attr("fill", function (d) {
+            return getColor(econData[selectedAttribute].get(d));
         })
         .sort(function (a, b) {
-            return b - a;
+            return econData[selectedAttribute].get(b) - econData[selectedAttribute].get(a);
         })
-        .attr("x", function(d, i) {
-            return i * (chartWidth / data.length) + 0;
+        .attr("x", function (d, i) {
+            return i * (chartWidth / stateCounties[state].length) + 5;
         })
-        .attr("width", chartWidth / data.length - 1)
+        .attr("width", chartWidth / stateCounties[state].length - 1)
         .attr("y", yMap)
-        .attr("height", function(d) {
+        .attr("height", function (d, i) {
             return chartHeight - yMap(d);
-        });
+        })
+        .on("mouseover", highlightBar)
+        .on("mouseout", unhighlightBar)
+        .on("mousemove", moveLabel);
+        // .on("mouseover", function(d) {
+        //     return highlight(d);
+        // })
+        // .on("mouseout", function(d) {
+        //     return unhighlight(d);
+        // })
+        // .on("mousemove", function(d) {
+        //     return moveLabel(d);
+        // });
 }
 
 // FIXME: Chart items should dynamically be updated, so a smooth transition can be shown
 // FIXME: Trying it now just transitions X number of columns from previous state
-function updateChart(state)
-{
+function updateChart(state) {
     var data = [];
     econData[selectedAttribute].each(function (val, key) {
         var thisState = key.substring(0, 2);

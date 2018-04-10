@@ -173,11 +173,11 @@ h3 {
 
 .county-label {
     position: absolute;
-    top: 0;
+    top: -100; /* Fix the DIV flashing on creation */
     left: 0;
     min-height: 50px;
     min-width: 100px;
-    background-color: rgba(250, 250, 250, 0.85);
+    background-color: rgba(248, 248, 248, 0.85);
     padding: 4px;
     font-family: "Roboto Condensed", sans-serif;
     color: #444;
@@ -217,6 +217,10 @@ h3 {
     /* fill: #444; */
     stroke: #fff;
     stroke-width: 0.5px;
+}
+
+.y-axis {
+    width: 100px;
 }
 
 .no-data { 
