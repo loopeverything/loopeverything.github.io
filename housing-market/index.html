@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Thompson | Where We Work</title>
+
+    <meta property="og:url" content="https://loopeverything.github.io" />
+    <meta property="og:site_name" content="Alex Thompson | Portfolio" />
+    <meta property="og:title" content="Alex Thompson | Where We Work" />
+    <meta property="og:description" content="Alex Thompson | Portfolio | I’m a graduate student at the University of Wisconsin-Madison, studying Cartography and GIS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:author" content="https://github.com/loopeverything" />
+    <meta name="description" content="Alex Thompson | Portfolio | I’m a graduate student at the University of Wisconsin-Madison, studying Cartography and GIS." />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400|Roboto+Condensed:300" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/housing-market/public/css/housing-market.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="title">Housing in the United States</h1>
+                <h2 class="subtitle">Owner-Occupied Homes That Have a Mortgage</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="show-me-this">
+                    <form>
+                        Show me
+                        <select id="attribute-select">
+                            <option value="units" selected="selected">Number of Owner-Occupied Units</option>
+                            <option value="value">Median Home Value</option>
+                            <option value="income">Median Household Income</option>
+                            <option value="costs">Median Monthly Housing Costs</option>
+                            <option value="taxes">Median Real Estate Taxes</option>
+                        </select>
+
+                        <!-- Hide this -->
+                        <select id="compute_select">
+                            <option id="compute_option"></option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="map-container"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="chart-container"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="footer">
+                    Information shown is based on the American Community Survey 5-Year Estimates, provided
+                    by the US Census Bureau. All data used is available through the <a href="https://factfinder.census.gov" target="_blank">American FactFinder</a> interface.
+                </div>
+            </div>
+        </div>
+    </div> <!-- wrapper -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--<script src="https://d3js.org/d3.v5.min.js"></script>-->
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <!--<script src="/housing-market/public/js/housing.js"></script>-->
+    <script src="/housing-market/public/js/us-housing.js"></script>
+</body>
+
+</html>
