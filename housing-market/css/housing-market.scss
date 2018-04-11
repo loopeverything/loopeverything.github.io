@@ -168,10 +168,11 @@ h3 {
 }
 
 .loading {
-    color: #222;
     font-family: $bodyFontFamily;
     font-size: 14px;
+    color: #527e89;
     background-color: rgba(248, 248, 248, 0.85);
+    /* background-color: rgba(177, 212, 203, 0.85); */
     position: fixed;
     top: 0;
     left: 0;

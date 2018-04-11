@@ -4,8 +4,9 @@ var height = 600;
 
 var map; // Map SVG element
 var g;
-var isZoomed = false; // Is the map zoomed in?
 var path = d3.geoPath();
+var isZoomed = false; // Is the map zoomed in?
+
 var counties; // County feature collection cache
 var states; // State feature collection cache
 
@@ -15,6 +16,7 @@ var chart; // Chart SVG element
 var chartMargin = { top: 10, right: 20, bottom: 30, left: 60 };
 var chartWidth = 960 - chartMargin.left - chartMargin.right;
 var chartHeight = 500 - chartMargin.top - chartMargin.bottom;
+var currentStateID; // State ID being used for the current chart
 var xValue;
 var xScale;
 var xMap;
@@ -24,12 +26,11 @@ var yScale;
 var yMap;
 var yAxis;
 
-var colorDomain; // Cache values for the currently selected attribute for the color scale's domain
-
 // Array of all attributes in the economic data 
 // -> we could scan to dynamically load this, but cheaper to just set it manually
 var attributes = ["county", "units", "value", "income", "costs", "taxes"];
 var selectedAttribute = "units"; // Default selected attribute
+var colorDomain; // Cache values for the currently selected attribute for the color scale's domain
 
 // Cache for the economic data
 var econData = [];
@@ -43,10 +44,12 @@ var stateCounties = {};
 // Set up the map SVG space, queue data, and then load it when it's ready
 function makeMap()
 {
+    // Append the map SVG
     map = d3.select(".map-container").append("svg")
         .attr("width", width)
         .attr("height", height);
 
+    // Add a rect to the map; seems to be needed for zooming
     map.append("rect")
         .attr("class", "background")
         .attr("width", width)
@@ -86,9 +89,6 @@ function makeMap()
             .enter().append("path")
             .attr("d", path)
             .attr("fill", function(d) {
-                // FIXME: Very slow -> cache the domain when the select-attribute changes so it isn't done for every county
-                // FIXME: Better, but still slow
-
                 return getColor(econData[selectedAttribute].get(d.id));
             })
             .attr("class", function(d) {
@@ -109,43 +109,6 @@ function makeMap()
 
         $(".loading").toggle(false);
     }
-}
-
-// Handle attribute-select onchange event
-function changedAttribute()
-{
-    // if (isZoomed)
-    //     resetZoom();
-
-    
-
-    $(".loading").toggle(500, function() {
-        // Update the selected attribute
-        selectedAttribute = $("#attribute-select").val();
-
-        // Update domain used for the color scale
-        updateColorDomain();
-
-        // If chart exists -> remove it and hide the title
-        if (chart) {
-            d3.select(".chart").remove();
-
-            // Hide the chart title
-            $(".chart-title").css("display", "none");
-        }
-
-        // Transition county fills
-        map.selectAll(".county")
-            .transition()
-            .delay(function (d, i) { return i * 1; })
-            .duration(600)
-            .attr("fill", function (d) {
-                return getColor(econData[selectedAttribute].get(d.id));
-            })
-            .on("end", function() {
-                $(".loading").toggle(false);
-            });
-    });
 }
 
 // Handle count onclick event
@@ -325,7 +288,6 @@ function createLabel(id, countyHighlight = true)
 function destroyLabel() { d3.select(".county-label").remove(); }
 
 // User moved mouse -> move label position
-// FIXME: Little laggy, is this just D3?
 function moveLabel(d) 
 {
     var x = d3.event.pageX + 10;
@@ -345,18 +307,7 @@ function updateColorDomain()
 // Get a color based on a quantile scale from the COLORS range
 function getColor(value) 
 {
-    var colors = [
-        "#ffffe8",
-        "#fffee1",
-        "#fefed2",
-        "#eaf3c9",
-        "#d8e9c1",
-        "#b7d5b6",
-        "#93bca9",
-        "#80ada2",
-        "#527e89",
-        "#283147"
-    ];
+    var colors = ["#ffffe8", "#fffee1", "#fefed2", "#eaf3c9", "#d8e9c1", "#b7d5b6", "#93bca9", "#80ada2", "#527e89", "#283147"];
 
     if (!colorDomain)
         updateColorDomain();
@@ -365,10 +316,8 @@ function getColor(value)
         .range(colors)
         .domain(colorDomain);
 
-    // TODO: County borders are hard to see -> should use RGBA with different alphas for stroke/fill?
-
     /*
-    // TODO: Dynamically scale the colors
+    // TODO: Dynamically scale the colors rather than manually defining them
     var colorScale = d3.scaleQuantile()
         // .range(d3.interpolateHcl(d3.hcl("hsl(62, 100%, 90%)"), d3.hcl("hsl(228, 30%, 20%)")))
         // .range(d3.range(9).map(function(i) {
@@ -387,118 +336,146 @@ function getColor(value)
 }
 // Create chart for state ID
 // https://bl.ocks.org/mbostock/5977197
-function createChart(stateID, keepChart = false) {
-    if (isZoomed && !keepChart)
-    {
-        // If chart exists -> remove it and hide the title
-        if (chart)
-        {
-            d3.select(".chart").remove();
+function createChart(stateID) {
+    // Save the state ID incase user changes the selected attribute
+    currentStateID = stateID;
 
-            // Hide the chart title
-            $(".chart-title").css("display", "none");
-        }
+    if (chart)
+        d3.select(".chart").remove();
 
-    } else {
-        // For the chart title, let's cheat and strip the state name from the county name data we already have
-        var countyName = econData["county"].get(stateCounties[stateID][0]);
-        var stateName = countyName.split(", ")[1];
+    // For the chart title, let's cheat and strip the state name from the county name data we already have
+    var countyName = econData["county"].get(stateCounties[stateID][0]);
+    var stateName = countyName.split(", ")[1];
 
-        // Chart title
-        $(".chart-title").css("display", "inherit");
+    // Chart title
+    $(".chart-title").css("display", "inherit");
 
-        var subtitle;
-        switch (selectedAttribute) {
-            case "units":
-                subtitle = "Number of Owner-Occupied Units";
-                break;
-            case "value":
-                subtitle = "Median Home Value";
-                break;
-            case "income":
-                subtitle = "Median Household Income";
-                break;
-            case "costs":
-                subtitle = "Median Monthly Housing Costs";
-                break;
-            case "taxes":
-                subtitle = "Median Real Estate Taxes";
-                break;
-            default:
-                break;
-        }
-
-        $(".chart-title").text(subtitle + " in " + stateName);
-
-        // X-axis scale and values
-        xValue = function (d) { return d; };
-        xScale = d3.scaleOrdinal().range([0, chartWidth], .1);
-        xMap = function (d) { return xScale(xValue(d)); };
-        xAxis = d3.axisBottom(xScale);
-
-        // Y-axis scale and values
-        yValue = function (d) {
-            return econData[selectedAttribute].get(d);
-        };
-        yScale = d3.scaleLinear().range([chartHeight, 0]);
-        yMap = function (d) { return yScale(yValue(d)); };
-        yAxis = d3.axisLeft(yScale);
-
-        // Create the chart SVG
-        chart = d3.select(".chart-container").append("svg")
-            .attr("class", "chart")
-            .attr("width", chartWidth + chartMargin.left + chartMargin.right)
-            .attr("height", chartHeight + chartMargin.top + chartMargin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + chartMargin.left + "," + chartMargin.top + ")");
-
-        // Get max value for domain
-        var maxValue = 0;
-        for (var key in stateCounties[stateID]) {
-            if (parseFloat(econData[selectedAttribute].get(stateCounties[stateID][key])) > maxValue)
-                maxValue = econData[selectedAttribute].get(stateCounties[stateID][key]);
-        }
-        // maxValue += (maxValue * 0.001); // Pad the max axis value?
-
-        // Update the domain for the y-scale values
-        yScale.domain([0, maxValue]);
-
-        // Add the y-axis
-        chart.append("g")
-            .attr("class", "y-axis")
-            .call(yAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Value");
-
-        // Add the bars
-        chart.selectAll(".bar")
-            .data(stateCounties[stateID])
-            .enter().append("rect")
-            .attr("class", function (d) {
-                return "bar bar-" + d;
-            })
-            .attr("fill", function (d) {
-                return getColor(econData[selectedAttribute].get(d));
-            })
-            .sort(function (a, b) {
-                return econData[selectedAttribute].get(b) - econData[selectedAttribute].get(a);
-            })
-            .attr("x", function (d, i) {
-                return i * (chartWidth / stateCounties[stateID].length) + 5;
-            })
-            .attr("width", chartWidth / stateCounties[stateID].length - 1)
-            .attr("y", yMap)
-            .attr("height", function (d, i) {
-                return chartHeight - yMap(d);
-            })
-            .on("mouseover", highlightBar)
-            .on("mouseout", unhighlightBar)
-            .on("mousemove", moveLabel);
+    var subtitle;
+    switch (selectedAttribute) {
+        case "units":
+            subtitle = "Number of Owner-Occupied Units";
+            break;
+        case "value":
+            subtitle = "Median Home Value";
+            break;
+        case "income":
+            subtitle = "Median Household Income";
+            break;
+        case "costs":
+            subtitle = "Median Monthly Housing Costs";
+            break;
+        case "taxes":
+            subtitle = "Median Real Estate Taxes";
+            break;
+        default:
+            break;
     }
+
+    $(".chart-title").text(subtitle + " in " + stateName);
+
+    // X-axis scale and values
+    xValue = function (d) { return d; };
+    xScale = d3.scaleOrdinal().range([0, chartWidth], .1);
+    xMap = function (d) { return xScale(xValue(d)); };
+    xAxis = d3.axisBottom(xScale);
+
+    // Y-axis scale and values
+    yValue = function (d) {
+        var value = parseFloat(econData[selectedAttribute].get(d));
+        if (typeof value == 'number' && !isNaN(value))
+            return value;
+        else
+            return 0;
+    };
+    yScale = d3.scaleLinear().range([chartHeight, 0]);
+    yMap = function (d) { return yScale(yValue(d)); };
+    yAxis = d3.axisLeft(yScale);
+
+    // Create the chart SVG
+    chart = d3.select(".chart-container").append("svg")
+        .attr("class", "chart")
+        .attr("width", chartWidth + chartMargin.left + chartMargin.right)
+        .attr("height", chartHeight + chartMargin.top + chartMargin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + chartMargin.left + "," + chartMargin.top + ")");
+
+    // Get max value for domain
+    var maxValue = 0;
+    for (var key in stateCounties[stateID]) {
+        if (parseFloat(econData[selectedAttribute].get(stateCounties[stateID][key])) > maxValue)
+            maxValue = econData[selectedAttribute].get(stateCounties[stateID][key]);
+    }
+
+    // Update the domain for the y-scale values
+    yScale.domain([0, maxValue]);
+
+    // Add the y-axis
+    chart.append("g")
+        .attr("class", "y-axis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Value");
+
+    // Add the bars
+    chart.selectAll(".bar")
+        .data(stateCounties[stateID])
+        .enter().append("rect")
+        .attr("class", function (d) {
+            return "bar bar-" + d;
+        })
+        .attr("fill", function (d) {
+            return getColor(econData[selectedAttribute].get(d));
+        })
+        .sort(function (a, b) {
+            //return econData[selectedAttribute].get(b) - econData[selectedAttribute].get(a);
+            return yMap(a) - yMap(b);
+        })
+        .attr("x", function (d, i) {
+            return i * (chartWidth / stateCounties[stateID].length) + 5;
+        })
+        .attr("width", chartWidth / stateCounties[stateID].length - 1)
+        .attr("y", yMap)
+        .attr("height", function (d, i) {
+            return chartHeight - yMap(d);
+        })
+        .on("mouseover", highlightBar)
+        .on("mouseout", unhighlightBar)
+        .on("mousemove", moveLabel);
+}
+
+// Handle attribute-select onchange event
+function changedAttribute() {
+    // Show the Loading message and then wait for it to finish easing before starting transition
+    $(".loading").toggle(500, function () {
+        // Update the selected attribute
+        selectedAttribute = $("#attribute-select").val();
+
+        // Update domain used for the color scale
+        updateColorDomain();
+
+        // If chart exists -> remake it
+        if (chart) {
+            // Check shouldn't be needed, but be safe
+            if (currentStateID)
+                createChart(currentStateID);
+        }
+
+        // Transition county fills
+        map.selectAll(".county")
+            .transition()
+            .delay(function (d, i) { return i * 1; })
+            .duration(600)
+            .attr("fill", function (d) {
+                return getColor(econData[selectedAttribute].get(d.id));
+            })
+            .on("end", function () {
+                $(".loading").toggle(false);
+            });
+    });
 }
 
 // Ready
