@@ -112,7 +112,15 @@ h3 {
 }
 
 .map-container {
-    margin: 30px 0px;
+    margin: 30px 0px 0px 0px;
+}
+
+.chart-title {
+    display: none;
+    color: darken($colorBody, 40%);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: $bodyFontSize * 1.3;
+    font-weight: $bodyFontWeight;
 }
 
 .footer {
@@ -131,27 +139,32 @@ h3 {
     margin: 10px 0px;
 
     select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      text-indent: 1px;
-      text-overflow: '';
-      background: #fff;
-      background-image: none;
-      border: 0px;
-      box-shadow: none;
-      font-size: $bodyFontSize * 1.2;
-      font-weight: 300;
-      text-decoration: underline;
-      text-align-last: center;
-      text-align: center;
-      cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        background: #fff;
+        background-image: none;
+        border: 0px;
+        box-shadow: none;
+        font-size: $bodyFontSize * 1.2;
+        font-weight: 300;
+        text-decoration: underline;
+        text-align-last: center;
+        text-align: center;
+        cursor: pointer;
     }
 
     #compute_select {
-      display: none;
+        display: none;
     }
-  }
+}
+
+.background {
+    fill: none;
+    pointer-events: all;
+}
 
 %county {
     stroke: #fff;
@@ -214,13 +227,8 @@ h3 {
 }
 
 .bar {
-    /* fill: #444; */
     stroke: #fff;
     stroke-width: 0.5px;
-}
-
-.y-axis {
-    width: 100px;
 }
 
 .no-data { 

@@ -1,11 +1,10 @@
 // Map SVG dimensions
-// var margin = { top: 20, right: 10, bottom: 20, left: 10 };
-// var width = 960 - margin.left - margin.right;
-// var height = 500 - margin.top - margin.bottom;
 var width = 960;
 var height = 600;
 
 var map; // Map SVG element
+var g;
+var isZoomed = false; // Is the map zoomed in?
 var path = d3.geoPath();
 var counties; // County feature collection cache
 var states; // State feature collection cache
@@ -13,7 +12,7 @@ var states; // State feature collection cache
 // Chart variables
 // TODO: Wrap these in a Chart class?
 var chart; // Chart SVG element
-var chartMargin = { top: 20, right: 20, bottom: 30, left: 60 };
+var chartMargin = { top: 10, right: 20, bottom: 30, left: 60 };
 var chartWidth = 960 - chartMargin.left - chartMargin.right;
 var chartHeight = 500 - chartMargin.top - chartMargin.bottom;
 var xValue;
@@ -25,8 +24,6 @@ var yScale;
 var yMap;
 var yAxis;
 
-//var quantile = d3.scaleQuantile()
-//    .range(d3.range(9).map(function (i) { return "q" + i + "-9"; }));
 var colorDomain; // Cache values for the currently selected attribute for the color scale's domain
 
 // Array of all attributes in the economic data 
@@ -50,11 +47,12 @@ function makeMap()
         .attr("width", width)
         .attr("height", height);
 
-    // map = d3.select(".map-container").append("svg")
-    //     .attr("width", width + margin.left + margin.right)
-    //     .attr("height", height + margin.top + margin.bottom)
-    //     .append("g")
-    //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    map.append("rect")
+        .attr("class", "background")
+        .attr("width", width)
+        .attr("height", height);
+
+    g = map.append("g");
 
     d3.queue()
         .defer(d3.csv, "/housing-market/data/us_economic.csv", function (d) {
@@ -84,12 +82,9 @@ function makeMap()
         // Cache the county and state feature collections
         counties = topojson.feature(mapData, mapData.objects.counties);
         states = topojson.feature(mapData, mapData.objects.states);
-
-        // console.log(counties);
-        // console.log(d3.keys(counties));
-        // console.log(d3.entries(counties));
         
-        map.selectAll(".county")
+        // map.selectAll(".county")
+        g.selectAll(".county")
             .data(counties.features)
             .enter().append("path")
             .attr("d", path)
@@ -97,7 +92,6 @@ function makeMap()
                 // FIXME: Very slow -> cache the domain when the select-attribute changes so it isn't done for every county
                 // FIXME: Better, but still slow
 
-                //return getColor(econData[selectedAttribute].values(), econData[selectedAttribute].get(d.id));
                 return getColor(econData[selectedAttribute].get(d.id));
             })
             .attr("class", function(d) {
@@ -108,7 +102,8 @@ function makeMap()
             .on("mousemove", moveLabel)
             .on("click", countyClicked);
 
-        map.selectAll(".state")
+        // map.selectAll(".state")
+        g.selectAll(".state")
             .data(states.features)
             .enter().append("path")
             .attr("d", path)
@@ -123,12 +118,13 @@ function makeMap()
 // Handle attribute-select onchange event
 function changedAttribute()
 {
-    console.log("Changed attribute");
-
+    // Update the selected attribute
     selectedAttribute = $("#attribute-select").val();
 
+    // Update domain used for the color scale
     updateColorDomain();
 
+    // Transition county fills
     map.selectAll(".county")
         .transition()
         .delay(function (d, i) { return i * 1; })
@@ -146,40 +142,125 @@ function countyClicked(d)
     // Get the state ID
     var state = d.id.substring(0, 2);
 
+    // FIXME: Fix the updateChart method so there are smooth transitions
     // if (!chart)
     //     createChart(state);
     // else
     //     updateChart(state);
 
-    // FIXME: Fix the updateChart method so there are smooth transitions
+    // Create a chart for the county's parent state
     createChart(state);
+
+    // Zoom to the county's parent state
+    zoomTo(state);
+}
+
+// Create the zoom behavior
+var zoom = d3.zoom()
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);
+
+// Handle the zoom event
+function zoomed() {
+    g.style("stroke-width", 1.5 / d3.event.transform.k + "px");
+    g.attr("transform", d3.event.transform);
+}
+
+//https://bl.ocks.org/iamkevinv/0a24e9126cd2fa6b283c6f2d774b69a2
+function zoomTo(id)
+{
+    // Is the map already zoomed in? If so, reset it
+    if (isZoomed)
+    {
+        // Execute the zoom transition
+        map.transition()
+            .duration(750)
+            .call(zoom.transform, d3.zoomIdentity);
+
+        // Map is no longer zoomed in
+        isZoomed = false;
+
+    // Zoom in to the state ID that was passed
+    } else {
+        // Find the state GeoJSON object that matches the passed ID
+        var d = states.features.find(function (d) {
+            return d.id == id;
+        });
+
+        // Get bounds information for the state feature
+        var bounds = path.bounds(d),
+            dx = bounds[1][0] - bounds[0][0],
+            dy = bounds[1][1] - bounds[0][1],
+            x = (bounds[0][0] + bounds[1][0]) / 2,
+            y = (bounds[0][1] + bounds[1][1]) / 2,
+            scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
+            translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+        // Execute the zoom transition
+        map.transition()
+            .duration(750)
+            .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
+
+        // Map is zoomed in
+        isZoomed = true;
+    }
 }
 
 // Handle county onmouseover event
 function highlight(d) 
-{
+{ 
     createLabel(d.id);
+
+    // If chart exists -> Highlight bar associated wtih the county
+    if (chart) {
+        chart.selectAll(".bar-" + d.id)
+            .style("stroke", "#ff0000")
+            .style("stroke-width", "2px");
+    }
 }
 
 // Handle county onmouseout event
-function unhighlight(d)
-{
+function unhighlight(d) 
+{ 
     destroyLabel();
+
+    // If chart exists -> Unhighlight bar associated with the county
+    if (chart) {
+        chart.selectAll(".bar-" + d.id)
+            .style("stroke", "#fff")
+            .style("stroke-width", "0.5px");
+    }
 }
 
-function highlightBar(id)
-{
+// Handle chart bar onmouseover event
+function highlightBar(id) 
+{ 
+    // Create the info label
     createLabel(id, false);
+
+    // Highlight the associated county
+    map.selectAll(".county-" + id)
+        .style("stroke", "#ff0000")
+        .style("stroke-width", "1.5px");
 }
 
-function unhighlightBar(id)
-{
-    destroyLabel();
+// Handle chart bar onmouseover event
+function unhighlightBar(id) 
+{ 
+    // Destroy the info label
+    destroyLabel(); 
+
+    // Unhighlight the associated county
+    map.selectAll(".county-" + id)
+        .style("stroke", "#fff")
+        .style("stroke-width", "0.4px");
 }
 
 // Create the county label
 function createLabel(id, countyHighlight = true)
 {
+    // FIXME: Need a check for No Data
+
     // Make sure there is data to display
     var value = parseFloat(econData[selectedAttribute].get(id));
     if (typeof value == 'number' && !isNaN(value))
@@ -226,10 +307,7 @@ function createLabel(id, countyHighlight = true)
 }
 
 // Destroy the county label
-function destroyLabel()
-{
-    d3.select(".county-label").remove();
-}
+function destroyLabel() { d3.select(".county-label").remove(); }
 
 // User moved mouse -> move label position
 // FIXME: Little laggy, is this just D3?
@@ -272,8 +350,10 @@ function getColor(value)
         .range(colors)
         .domain(colorDomain);
 
+    // TODO: County borders are hard to see -> should use RGBA with different alphas for stroke/fill?
+
     /*
-    // FIXME: Dynamically scale the colors
+    // TODO: Dynamically scale the colors
     var colorScale = d3.scaleQuantile()
         // .range(d3.interpolateHcl(d3.hcl("hsl(62, 100%, 90%)"), d3.hcl("hsl(228, 30%, 20%)")))
         // .range(d3.range(9).map(function(i) {
@@ -287,7 +367,7 @@ function getColor(value)
     if (typeof value == 'number' && !isNaN(value)) {
         return colorScale(value);
     } else {
-        return '#333333';
+        return '#eee';
     };
 }
 // Create chart for state ID
@@ -319,9 +399,6 @@ function createChart(state) {
 
     // Y-axis scale and values
     yValue = function (d) { 
-        // return d;
-        // console.log("Val: " + econData[selectedAttribute].get(d));
-        
         return econData[selectedAttribute].get(d);
     };
     yScale = d3.scaleLinear().range([chartHeight, 0]);
@@ -342,8 +419,7 @@ function createChart(state) {
         if (parseFloat(econData[selectedAttribute].get(stateCounties[state][key])) > maxValue)
             maxValue = econData[selectedAttribute].get(stateCounties[state][key]);
     }
-    // maxValue += (maxValue * 0.001);
-    console.log("Max: " + maxValue);
+    // maxValue += (maxValue * 0.001); // Pad the max axis value?
     
     // Update the domain for the y-scale values
     yScale.domain([0, maxValue]);
@@ -363,7 +439,9 @@ function createChart(state) {
     chart.selectAll(".bar")
         .data(stateCounties[state])
         .enter().append("rect")
-        .attr("class", "bar")
+        .attr("class", function (d) {
+            return "bar bar-" + d;
+        })
         .attr("fill", function (d) {
             return getColor(econData[selectedAttribute].get(d));
         })
@@ -381,62 +459,6 @@ function createChart(state) {
         .on("mouseover", highlightBar)
         .on("mouseout", unhighlightBar)
         .on("mousemove", moveLabel);
-        // .on("mouseover", function(d) {
-        //     return highlight(d);
-        // })
-        // .on("mouseout", function(d) {
-        //     return unhighlight(d);
-        // })
-        // .on("mousemove", function(d) {
-        //     return moveLabel(d);
-        // });
-}
-
-// FIXME: Chart items should dynamically be updated, so a smooth transition can be shown
-// FIXME: Trying it now just transitions X number of columns from previous state
-function updateChart(state) {
-    var data = [];
-    econData[selectedAttribute].each(function (val, key) {
-        var thisState = key.substring(0, 2);
-
-        if (thisState == state) {
-            data.push(val);
-            //data[key] = val;
-        }
-    });
-
-    // Update the domain for the y-scale
-    yScale.domain([0, d3.max(data, yValue)]);
-
-    console.log(data);
-
-    chart.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Value");
-
-    chart.selectAll(".bar")
-        .data(data)
-        .enter().append("rect")
-        .attr("class", "bar")
-        .sort(function (a, b) {
-            return b - a;
-        })
-        .attr("x", function (d, i) {
-            return i * (chartWidth / data.length) + 0;
-        })
-        .attr("width", chartWidth / data.length - 1)
-        .attr("y", yMap)
-        .attr("height", function (d) {
-            console.log("d2: " + yMap(d));
-
-            return chartHeight - yMap(d);
-        });
 }
 
 // Ready
