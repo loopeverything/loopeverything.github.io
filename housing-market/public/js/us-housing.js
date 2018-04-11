@@ -38,6 +38,9 @@ attributes.forEach(function (attribute) {
     econData[attribute] = d3.map();
 });
 
+// TODO: Add a separate "geonames" CSV with state-county relations already defined
+// TODO: Use that for the chart title generation, and add a dropdown to let the user "zoom" by selecting the state name
+//      instead of having to click on it
 // Cache object for saving county-state association
 var stateCounties = {};
 
