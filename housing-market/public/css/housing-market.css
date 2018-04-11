@@ -85,7 +85,8 @@ h3 {
   color: #111111;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 22.1px;
-  font-weight: 300; }
+  font-weight: 300;
+  margin: 10px 0px; }
 
 .footer {
   color: #444;
@@ -120,6 +121,16 @@ h3 {
 .background {
   fill: none;
   pointer-events: all; }
+
+.loading {
+  color: #222;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  background-color: rgba(248, 248, 248, 0.85);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px; }
 
 .county, .no-data {
   stroke: #fff;

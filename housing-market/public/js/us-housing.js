@@ -77,13 +77,10 @@ function makeMap()
     function ready(error, economic, mapData) {
         if (error) throw error;
 
-        console.log("Starting");
-
         // Cache the county and state feature collections
         counties = topojson.feature(mapData, mapData.objects.counties);
         states = topojson.feature(mapData, mapData.objects.states);
         
-        // map.selectAll(".county")
         g.selectAll(".county")
             .data(counties.features)
             .enter().append("path")
@@ -102,7 +99,6 @@ function makeMap()
             .on("mousemove", moveLabel)
             .on("click", countyClicked);
 
-        // map.selectAll(".state")
         g.selectAll(".state")
             .data(states.features)
             .enter().append("path")
@@ -111,29 +107,45 @@ function makeMap()
                 return "state state-" + d.id;
             });
 
-        console.log("Done");
+        $(".loading").toggle(false);
     }
 }
 
 // Handle attribute-select onchange event
 function changedAttribute()
 {
-    // Update the selected attribute
-    selectedAttribute = $("#attribute-select").val();
+    // if (isZoomed)
+    //     resetZoom();
 
-    // Update domain used for the color scale
-    updateColorDomain();
+    
 
-    // Transition county fills
-    map.selectAll(".county")
-        .transition()
-        .delay(function (d, i) { return i * 1; })
-        .duration(600)
-        .attr("fill", function (d) {
-            return getColor(econData[selectedAttribute].get(d.id));
-        });
+    $(".loading").toggle(500, function() {
+        // Update the selected attribute
+        selectedAttribute = $("#attribute-select").val();
 
-    // TODO: Show a loading message/image to the user here since it can take a couple of seconds to refresh
+        // Update domain used for the color scale
+        updateColorDomain();
+
+        // If chart exists -> remove it and hide the title
+        if (chart) {
+            d3.select(".chart").remove();
+
+            // Hide the chart title
+            $(".chart-title").css("display", "none");
+        }
+
+        // Transition county fills
+        map.selectAll(".county")
+            .transition()
+            .delay(function (d, i) { return i * 1; })
+            .duration(600)
+            .attr("fill", function (d) {
+                return getColor(econData[selectedAttribute].get(d.id));
+            })
+            .on("end", function() {
+                $(".loading").toggle(false);
+            });
+    });
 }
 
 // Handle count onclick event
@@ -141,12 +153,6 @@ function countyClicked(d)
 {
     // Get the state ID
     var state = d.id.substring(0, 2);
-
-    // FIXME: Fix the updateChart method so there are smooth transitions
-    // if (!chart)
-    //     createChart(state);
-    // else
-    //     updateChart(state);
 
     // Create a chart for the county's parent state
     createChart(state);
@@ -162,7 +168,7 @@ var zoom = d3.zoom()
 
 // Handle the zoom event
 function zoomed() {
-    g.style("stroke-width", 1.5 / d3.event.transform.k + "px");
+    g.style("stroke-width", 1.4 / d3.event.transform.k + "px");
     g.attr("transform", d3.event.transform);
 }
 
@@ -172,13 +178,7 @@ function zoomTo(id)
     // Is the map already zoomed in? If so, reset it
     if (isZoomed)
     {
-        // Execute the zoom transition
-        map.transition()
-            .duration(750)
-            .call(zoom.transform, d3.zoomIdentity);
-
-        // Map is no longer zoomed in
-        isZoomed = false;
+        resetZoom();
 
     // Zoom in to the state ID that was passed
     } else {
@@ -204,6 +204,17 @@ function zoomTo(id)
         // Map is zoomed in
         isZoomed = true;
     }
+}
+
+function resetZoom()
+{
+    // Execute the zoom transition
+    map.transition()
+        .duration(750)
+        .call(zoom.transform, d3.zoomIdentity);
+
+    // Map is no longer zoomed in
+    isZoomed = false;
 }
 
 // Handle county onmouseover event
@@ -275,19 +286,23 @@ function createLabel(id, countyHighlight = true)
             break;
         case "value":
             subtitle = "Median Home Value";
-            value = "$" + value;
+            if (value != "No Data")
+                value = "$" + value;
             break;
         case "income":
             subtitle = "Median Household Income";
-            value = "$" + value;
+            if (value != "No Data")
+                value = "$" + value;
             break;
         case "costs":
             subtitle = "Median Monthly Housing Costs";
-            value = "$" + value;
+            if (value != "No Data")
+                value = "$" + value;
             break;
         case "taxes":
             subtitle = "Median Real Estate Taxes";
-            value = "$" + value;
+            if (value != "No Data")
+                value = "$" + value;
             break;
         default:
             break;
@@ -372,93 +387,118 @@ function getColor(value)
 }
 // Create chart for state ID
 // https://bl.ocks.org/mbostock/5977197
-function createChart(state) {
-    if (chart)
-        d3.select(".chart").remove();
+function createChart(stateID, keepChart = false) {
+    if (isZoomed && !keepChart)
+    {
+        // If chart exists -> remove it and hide the title
+        if (chart)
+        {
+            d3.select(".chart").remove();
 
-    // console.log(stateCounties[state]);
+            // Hide the chart title
+            $(".chart-title").css("display", "none");
+        }
 
-    // stateCounties[state].foreach(function(d) {
-    //     console.log("d: " + d + " val: " + econData[selectedAttribute].get(d));
-    // });
+    } else {
+        // For the chart title, let's cheat and strip the state name from the county name data we already have
+        var countyName = econData["county"].get(stateCounties[stateID][0]);
+        var stateName = countyName.split(", ")[1];
 
-    // for (var key in stateCounties[state])
-    // {
-    //     console.log(key, stateCounties[state][key]);
-    //     console.log(econData[selectedAttribute].get(stateCounties[state][key]));
-    // }
+        // Chart title
+        $(".chart-title").css("display", "inherit");
 
-    // _stateCounties = Array.from(stateCounties[state]);
-    // return;
+        var subtitle;
+        switch (selectedAttribute) {
+            case "units":
+                subtitle = "Number of Owner-Occupied Units";
+                break;
+            case "value":
+                subtitle = "Median Home Value";
+                break;
+            case "income":
+                subtitle = "Median Household Income";
+                break;
+            case "costs":
+                subtitle = "Median Monthly Housing Costs";
+                break;
+            case "taxes":
+                subtitle = "Median Real Estate Taxes";
+                break;
+            default:
+                break;
+        }
 
-    // X-axis scale and values
-    xValue = function (d) { return d; };
-    xScale = d3.scaleOrdinal().range([0, chartWidth], .1);
-    xMap = function (d) { return xScale(xValue(d)); };
-    xAxis = d3.axisBottom(xScale);
+        $(".chart-title").text(subtitle + " in " + stateName);
 
-    // Y-axis scale and values
-    yValue = function (d) { 
-        return econData[selectedAttribute].get(d);
-    };
-    yScale = d3.scaleLinear().range([chartHeight, 0]);
-    yMap = function (d) { return yScale(yValue(d)); };
-    yAxis = d3.axisLeft(yScale);
+        // X-axis scale and values
+        xValue = function (d) { return d; };
+        xScale = d3.scaleOrdinal().range([0, chartWidth], .1);
+        xMap = function (d) { return xScale(xValue(d)); };
+        xAxis = d3.axisBottom(xScale);
 
-    // Create the chart SVG
-    chart = d3.select(".chart-container").append("svg")
-        .attr("class", "chart")
-        .attr("width", chartWidth + chartMargin.left + chartMargin.right)
-        .attr("height", chartHeight + chartMargin.top + chartMargin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + chartMargin.left + "," + chartMargin.top + ")");
+        // Y-axis scale and values
+        yValue = function (d) {
+            return econData[selectedAttribute].get(d);
+        };
+        yScale = d3.scaleLinear().range([chartHeight, 0]);
+        yMap = function (d) { return yScale(yValue(d)); };
+        yAxis = d3.axisLeft(yScale);
 
-    // Get max value for domain
-    var maxValue = 0;
-    for (var key in stateCounties[state]) {
-        if (parseFloat(econData[selectedAttribute].get(stateCounties[state][key])) > maxValue)
-            maxValue = econData[selectedAttribute].get(stateCounties[state][key]);
+        // Create the chart SVG
+        chart = d3.select(".chart-container").append("svg")
+            .attr("class", "chart")
+            .attr("width", chartWidth + chartMargin.left + chartMargin.right)
+            .attr("height", chartHeight + chartMargin.top + chartMargin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + chartMargin.left + "," + chartMargin.top + ")");
+
+        // Get max value for domain
+        var maxValue = 0;
+        for (var key in stateCounties[stateID]) {
+            if (parseFloat(econData[selectedAttribute].get(stateCounties[stateID][key])) > maxValue)
+                maxValue = econData[selectedAttribute].get(stateCounties[stateID][key]);
+        }
+        // maxValue += (maxValue * 0.001); // Pad the max axis value?
+
+        // Update the domain for the y-scale values
+        yScale.domain([0, maxValue]);
+
+        // Add the y-axis
+        chart.append("g")
+            .attr("class", "y-axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Value");
+
+        // Add the bars
+        chart.selectAll(".bar")
+            .data(stateCounties[stateID])
+            .enter().append("rect")
+            .attr("class", function (d) {
+                return "bar bar-" + d;
+            })
+            .attr("fill", function (d) {
+                return getColor(econData[selectedAttribute].get(d));
+            })
+            .sort(function (a, b) {
+                return econData[selectedAttribute].get(b) - econData[selectedAttribute].get(a);
+            })
+            .attr("x", function (d, i) {
+                return i * (chartWidth / stateCounties[stateID].length) + 5;
+            })
+            .attr("width", chartWidth / stateCounties[stateID].length - 1)
+            .attr("y", yMap)
+            .attr("height", function (d, i) {
+                return chartHeight - yMap(d);
+            })
+            .on("mouseover", highlightBar)
+            .on("mouseout", unhighlightBar)
+            .on("mousemove", moveLabel);
     }
-    // maxValue += (maxValue * 0.001); // Pad the max axis value?
-    
-    // Update the domain for the y-scale values
-    yScale.domain([0, maxValue]);
-
-    // Add the y-axis
-    chart.append("g")
-        .attr("class", "y-axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Value");
-
-    // Add the bars
-    chart.selectAll(".bar")
-        .data(stateCounties[state])
-        .enter().append("rect")
-        .attr("class", function (d) {
-            return "bar bar-" + d;
-        })
-        .attr("fill", function (d) {
-            return getColor(econData[selectedAttribute].get(d));
-        })
-        .sort(function (a, b) {
-            return econData[selectedAttribute].get(b) - econData[selectedAttribute].get(a);
-        })
-        .attr("x", function (d, i) {
-            return i * (chartWidth / stateCounties[state].length) + 5;
-        })
-        .attr("width", chartWidth / stateCounties[state].length - 1)
-        .attr("y", yMap)
-        .attr("height", function (d, i) {
-            return chartHeight - yMap(d);
-        })
-        .on("mouseover", highlightBar)
-        .on("mouseout", unhighlightBar)
-        .on("mousemove", moveLabel);
 }
 
 // Ready
