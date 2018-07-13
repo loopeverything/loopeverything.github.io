@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<div class="project">
+  <div class="row">
+
+    <div class="col-12 col-md-3">
+      <div class="project-left">
+        <h1>{{ page.title }}</h1>
+
+        <p class="project-date">
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {%- assign date_format = site.date_format | default: "%B %Y" -%}
+            {{ page.date | date: date_format }}
+          </time>
+        </p>
+
+        <div class="project-content">
+          {{ content }}
+        </div>
+
+        <!-- Tags -->
+        <div class="project-tags">
+          {%- if page.tags.size > 0 -%}
+            {%- for tag in page.tags -%}
+
+              {% if forloop.first == true %}
+                {{ tag }}
+              {%- else -%}
+                , {{ tag }}
+              {%- endif -%}
+
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+
+        {%- if page.app-link -%}
+        <div class="project-link">
+          <a target="_blank" href="{{ page.app-link }}">View the project</a>
+        </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <div class="project-images">
+        {%- if page.images > 0 -%}
+        
+          {%- for i in (1..page.images) -%}
+            {%- assign path_small = "/assets/img/projects/" | append: page.slug | append: "/img-" | append: i | append: "-small.jpg" -%}
+            {%- assign path_large = "/assets/img/projects/" | append: page.slug | append: "/img-" | append: i | append: ".jpg" -%}
+            <p>
+              <a data-fancybox="gallery" href="{{ path_large | relative_url }}">
+                <img src="{{ path_small | relative_url }}">
+              </a>
+            </p>
+          {%- endfor -%}
+
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</div>

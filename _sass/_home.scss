@@ -1,0 +1,66 @@
+.home {
+  .blurb {
+    text-align: center;
+    margin-bottom: 60px;
+
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      @include relative-font-size(1.8);
+
+      @include media-query($on-small) {
+        @include relative-font-size(1.6);
+      }
+    }
+
+    h3 {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+      @include relative-font-size(1.0);
+
+      @include media-query($on-small) {
+        @include relative-font-size(0.8);
+      }
+    }
+  }
+
+  .project-thumbnail {
+    transition-property: transform;
+    transition-duration: 0.5s;
+  }
+
+  .project-thumbnail:hover {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform: translate(0px, -8px);
+  }
+
+  .project-link {
+    position: relative;
+
+    img {
+      background-color: #eeeeee;
+      width: 500px;
+    }
+  }
+
+  .project-title {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    @include relative-font-size(1);
+
+    @include media-query($on-small) {
+      @include relative-font-size(0.8);
+    }
+  }
+
+  .project-subtitle {
+    text-align: center;
+    @include relative-font-size(0.8);
+
+    @include media-query($on-small) {
+      @include relative-font-size(0.6);
+    }
+
+    margin-bottom: 20px;
+  }
+}

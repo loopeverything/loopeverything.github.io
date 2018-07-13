@@ -1,0 +1,57 @@
+.resume {
+  color: #666;
+
+  h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    color: $text-color;
+    font-family: 'Roboto', sans-serif;
+    @include relative-font-size(2);
+
+    @include media-query($on-small) {
+      @include relative-font-size(1.8);
+    }
+  }
+
+  h2 {
+    color: $text-color;
+    font-family: 'Roboto', sans-serif;
+    @include relative-font-size(1.6);
+
+    @include media-query($on-small) {
+      @include relative-font-size(1.4);
+    }
+  }
+
+  h3 {
+    color: $text-color;
+    @include relative-font-size(1.4);
+
+    @include media-query($on-small) {
+      @include relative-font-size(1.2);
+    }
+  }
+
+  h4 {
+    color: lighten($text-color, 30%);
+    font-style: italic;
+    @include relative-font-size(1.2);
+
+    @include media-query($on-small) {
+      @include relative-font-size(1);
+    }
+  }
+
+  h5 {
+    color: lighten($text-color, 30%);
+    font-style: italic;
+    @include relative-font-size(1);
+
+    @include media-query($on-small) {
+      @include relative-font-size(0.8);
+    }
+  }
+}

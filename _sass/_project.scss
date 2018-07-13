@@ -1,0 +1,44 @@
+.project {
+  .project-left {
+    margin-bottom: 30px;
+    text-align: right;
+  }
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    @include relative-font-size(1.625);
+
+    @include media-query($on-small) {
+      @include relative-font-size(1.375);
+    }
+  }
+
+  .project-date {
+    time {
+      font-style: italic;
+      color: lighten($text-color, 20%);
+    }
+  }
+
+  .project-content {
+    
+  }
+
+  .project-tags {
+    font-style: italic;
+    color: lighten($text-color, 40%);
+    @include relative-font-size(0.9);
+
+    @include media-query($on-small) {
+      @include relative-font-size(0.8);
+    }
+  }
+
+  .project-images {
+    img {
+      width: 800px;
+    }
+  }
+}

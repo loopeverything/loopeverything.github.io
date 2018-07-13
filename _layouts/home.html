@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-5">
+      <div class="blurb">
+        <h2>Hi, I'm Alex Thompson. I'm a designer, cartographer, and geospatial analyst.</h2>
+        <h3>Check out <a href="{{ site.baseurl }}{% link resume.md %}">my resume</a>, or connect with me on <a href="#">LinkedIn</a> or <a href="#">GitHub</a>.</h3>
+      </div>
+    </div>
+  </div>
+  <!--<div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-3">
+      <div class="blurb">
+        <h3>You can <a href="{{ site.baseurl }}{% link resume.md %}">find my resume here</a>, and connect with me on <a href="#">LinkedIn</a> or <a href="#">GitHub</a>.</h3>
+      </div>
+    </div>
+  </div>
+  <br/><br/>-->
+
+  {%- if site.projects.size > 0 -%}
+    <div class="row">
+      
+      {%- assign projects = site.projects | sort: 'date' | reverse -%}
+      {%- for project in projects -%}
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="project-thumbnail">
+            {%- assign path = "/assets/img/projects/" | append: project.slug | append: "/home.jpg" -%}
+            <a class="project-link" href="{{ project.url | relative_url }}">
+              <img src="{{ path | relative_url }}">
+            </a>
+            <div class="project-title">{{ project.title }}</div>
+            <div class="project-subtitle">{{ project.subtitle }}</div>
+          </div> <!-- project-thumbnail -->
+        </div>
+      {%- endfor -%}
+
+    </div>
+  {%- endif -%}
+
+</div> <!-- home -->
