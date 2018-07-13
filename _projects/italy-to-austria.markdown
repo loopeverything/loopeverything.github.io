@@ -2,7 +2,7 @@
 layout:   project
 title:    "Italy to Austria"
 slug:     "italy-to-austria"
-subtitle: "Routing a 3,178 kilometer biking adventure through Italy and the Alps"
+subtitle: "Routing a 3,178 kilometer biking adventure across Italy and the Alps"
 date:     2017-11-01
 category: projects
 tags:

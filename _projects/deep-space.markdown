@@ -12,6 +12,6 @@ app-link: "https://api.mapbox.com/styles/v1/athmpsn/cjayttabddp9j2qmimgv6ws4q.ht
 ---
 A Mapbox tileset style inspired by Star Trek.
 
-Water bodies and bathymetry lines were made to look like stars, bright colors were used for lines, and a generous dose of futuristic fonts were added for labels.
+Water bodies and bathymetry lines were made to look like stars, while bright colors were used for lines, and a generous dose of futuristic fonts were added for labels.
 
-The result is a style that resembles a stereotypical interface commonly seen in science fiction movies.
+The result is a fun style resembling an interface or screen commonly found in science fiction movies.

@@ -1,5 +1,9 @@
 .resume {
-  color: #666;
+  @include relative-font-size(0.95);
+
+  @include media-query($on-small) {
+    @include relative-font-size(0.8);
+  }
 
   h1, h2, h3, h4, h5 {
     padding: 0;
@@ -27,7 +31,7 @@
   }
 
   h3 {
-    color: $text-color;
+    color: lighten($text-color, 20%);
     @include relative-font-size(1.4);
 
     @include media-query($on-small) {
@@ -37,7 +41,6 @@
 
   h4 {
     color: lighten($text-color, 30%);
-    font-style: italic;
     @include relative-font-size(1.2);
 
     @include media-query($on-small) {
@@ -46,12 +49,12 @@
   }
 
   h5 {
-    color: lighten($text-color, 30%);
+    color: lighten($text-color, 50%);
     font-style: italic;
-    @include relative-font-size(1);
+    @include relative-font-size(0.95);
 
     @include media-query($on-small) {
-      @include relative-font-size(0.8);
+      @include relative-font-size(0.75);
     }
   }
 }
