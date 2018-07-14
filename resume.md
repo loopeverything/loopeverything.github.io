@@ -10,7 +10,7 @@ Bachelor of Science Degree in Business Management with a Minor in Leadership. Ov
 [GitHub Profile](https://github.com/loopeverything)
 
 ## Education
-
+---
 ### University of Wisconsin-Madison
 #### Master of Science in Cartography and GIS
 ##### Expected graduation Fall 2018
@@ -35,7 +35,7 @@ Completed over 820 hours of coursework comprised of two phases of instruction in
 * Member of the Student Government Association Student Senate, the Student Government Association Budget Board, and the Entrepreneurial Leadership Initiative
 
 ## Work Experience
-
+---
 ### United States Marine Corps
 #### Geospatial Intelligence Chief, 3d Marine Logistics Group Headquarters G-2
 ##### Okinawa, Japan — April 2015 to November 2016
