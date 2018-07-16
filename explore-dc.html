@@ -5,55 +5,135 @@ javascripts:
   - explore-dc.js
 leaflet: true
 ---
-<div id="side-bar-button-wrapper">
-  <div id="side-bar-button">
-    <i class="fas fa-cog fa-lg"></i>
+<div role="button" id="close-side-bar-button-wrapper">
+  <div id="close-side-bar-button">
+    <i class="fas fa-times fa-lg"></i>
   </div>
 </div>
-<!--<div class="col-12 col-sm-6 offset-sm-6 col-md-5 offset-md-7">-->
+
+<div role="button" id="side-bar-button-wrapper">
+  <div id="side-bar-button">
+    <i class="fas fa-bars fa-lg"></i>
+  </div>
+</div>
+
 <div id="side-bar-wrapper">
   <div class="row no-gutters h-100">
-    <div class="d-none d-sm-block col-sm-6 col-md-7">
+    <div class="d-none d-sm-block col-sm-6 col-md-8">
       <div id="side-bar-clickable"></div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
-      <a id="close-side-bar">
-        <i class="fas fa-times fa-lg"></i>
-      </a>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <!--<a id="close-side-bar"><i class="fas fa-times fa-lg"></i></a>-->
       <!--<div id="report-loading">
         <i class="fas fa-circle-notch fa-spin"></i>
       </div>-->
       <div id="side-bar">
+
         <div class="row">
           <div class="col-12">
-            <h3>Search</h3>
+            <h3>Explore DC</h3>
           </div>
         </div>
-        <div class="row">
+
+        <div class="row search-form-row">
           <div class="col-12">
-            <h3>Show me</h3>
+            <div>
+              <form id="search-form" class="ui small form">
+
+                <div class="fields">
+                  <div class="ten wide field">
+                    <input type="text" id="search-query" placeholder="Find a place">
+                  </div>
+                  <div class="six wide field">
+                    <button class="ui submit button" type="submit">Search</button>
+                  </div>
+                </div>
+
+                <div class="six wide field">
+                  <label>Within</label>
+                  <div class="ui selection dropdown">
+                    <input type="hidden" name="within">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">25 km</div>
+                    <div class="menu">
+                      <div class="item" data-value="25">25 km</div>
+                      <div class="item" data-value="10">10 km</div>
+                      <div class="item" data-value="5">5 km</div>
+                      <div class="item" data-value="2">2 km</div>
+                      <div class="item" data-value="1">1 km</div>
+                      <div class="item" data-value="0.5">500 m</div>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-6 col-md-4">
-            Museums
+          
+        <div id="search-body">
+          <div class="row">
+            <div class="col-12">
+              <h4>Show me</h4>
+            </div>
           </div>
-          <div class="col-6 col-md-4">
-            Monuments
+          
+          <div class="row">
+            <div class="col-12">
+              <ul class="fa-ul">
+                <li>
+                  <span class="fa-li">
+                    <i class="fas fa-building"></i>
+                  </span>
+                  <a id="museums-link" class="feature-link">Museums</a>
+                </li>
+                <li>
+                  <span class="fa-li">
+                    <i class="fas fa-monument"></i>
+                  </span>
+                  <a id="monuments-link" class="feature-link">Monuments</a>
+                </li>
+                <li>
+                  <span class="fa-li">
+                    <i class="fas fa-camera-retro"></i>
+                  </span>
+                  <a id="viewpoints-link" class="feature-link">Viewpoints</a>
+                </li>
+                <li>
+                  <span class="fa-li">
+                    <i class="fas fa-hotel"></i>
+                  </span>
+                  <a id="hotels-link" class="feature-link">Hotels</a>
+                </li>
+                <li>
+                  <span class="fa-li">
+                    <i class="fas fa-utensils"></i>
+                  </span>
+                  <a id="restaurants-link" class="feature-link">Restaurants</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-6 col-md-4">
-            Viewpoints
-          </div>
-          <div class="col-6 col-md-4">
-            Hotels
-          </div>
-          <div class="col-6 col-md-4">
-            Restaurants
-          </div>
-          <div class="col-6 col-md-4">
-            Reviews
+        </div> <!-- search-body-->
+
+        <div id="feature-body"></div> <!-- feature-body-->
+
+        <div id="recommendations">
+          <h5>Recommendations</h5>
+          <div id="recommendations-body"></div>
+          <div>
+            <form id="recommendation-form" class="ui small form">
+              <div class="field">
+                <label>Add a New Recommendation</label>
+                <textarea id="recommendation" rows="4"></textarea>
+              </div>
+              <div class="field">
+                <button class="ui submit button" type="submit">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -61,7 +141,7 @@ leaflet: true
 
 <div class="row no-gutters h-100">
   <div class="col">
-      <!--<i class="fas fa-circle-notch fa-spin"></i> Loading...</div>-->
+    <div id="loading"><i class="fas fa-circle-notch fa-spin"></i> Loading...</div>
     <div id="map"></div>
   </div>
 </div>
