@@ -1,8 +1,8 @@
 let map;
 
 // Path to API backend
-const api = 'http://localhost:3002';
-// const api = 'http://206.189.163.171:3002';
+// const api = 'http://localhost:3002';
+const api = 'http://206.189.163.171:3002';
 
 // Flags
 let isSideBarOpen = false;
@@ -312,12 +312,6 @@ const init = () => {
     doubleClickZoom: false
   }).setView([38.889, -77.03], 15);
 
-  // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-  //   attribution: 'Map data &copy; <a href="http://mapbox.com">Mapbox</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>',
-  //   id: 'mapbox.light',
-  //   accessToken: 'pk.eyJ1IjoiYXRobXBzbiIsImEiOiJjajZ5bWVjOHgwNGp4MnhzZzMxa2pkeDBiIn0.MIHVmqU0AzpJTACceAr4Zg'
-  // }).addTo(map);
-
   // Set the basemap
   L.tileLayer('https://api.mapbox.com/styles/v1/athmpsn/cj8sooja8coot2rpecuuja864/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXRobXBzbiIsImEiOiJjajZ5bWVjOHgwNGp4MnhzZzMxa2pkeDBiIn0.MIHVmqU0AzpJTACceAr4Zg', {
     attribution: 'Map data &copy; <a href="http://mapbox.com">Mapbox</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'
@@ -327,7 +321,12 @@ const init = () => {
 $(() => {
   init();
 
+  // Simulate the user position
   addUserMarker();
+
+  //---------------------------------------------------------------------------
+  // Bind click and change events
+  //---------------------------------------------------------------------------
 
   $('#side-bar-button-wrapper').click(() => {
     openSideBar();
@@ -356,6 +355,16 @@ $(() => {
   $('#restaurants-link').click(() => {
     loadLayer('restaurants');
   });
+
+  $('.ui.dropdown').dropdown({
+    onChange: function (value) {
+      checkForUpdate();
+    }
+  });
+
+  //---------------------------------------------------------------------------
+  // Handle form submissions
+  //---------------------------------------------------------------------------
 
   $('#recommendation-form').submit((e) => {
     e.preventDefault();
@@ -390,11 +399,5 @@ $(() => {
     let q = $.trim($('#search-query').val());
     if (q)
       loadSearchLayer(q);
-  });
-
-  $('.ui.dropdown').dropdown({
-    onChange: function (value) {
-      checkForUpdate();
-    }
   });
 });
