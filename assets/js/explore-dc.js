@@ -1,8 +1,8 @@
 let map;
 
 // Path to API backend
-// const api = 'http://localhost:3002';
-const api = 'http://206.189.163.171:3002';
+const api = 'http://localhost:3002';
+// const api = 'http://206.189.163.171:3002';
 
 // Flags
 let isSideBarOpen = false;
@@ -386,7 +386,6 @@ $(() => {
     e.preventDefault();
 
     let distance = getDistance();
-    console.log('Distance: ' + distance);
 
     let q = $.trim($('#search-query').val());
     if (q)
