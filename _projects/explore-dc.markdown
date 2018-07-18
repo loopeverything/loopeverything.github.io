@@ -2,7 +2,7 @@
 layout:   project
 title:    "Explore DC"
 slug:     "explore-dc"
-subtitle: "Touring America's Capital"
+subtitle: "Touring America's capital"
 date:     2018-07-16
 category: projects
 tags:

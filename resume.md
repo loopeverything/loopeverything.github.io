@@ -39,7 +39,7 @@ Completed over 820 hours of coursework comprised of two phases of instruction in
 ### United States Marine Corps
 #### Geospatial Intelligence Chief, 3d Marine Logistics Group Headquarters G-2
 ##### Okinawa, Japan — April 2015 to November 2016
-* Provided direct geospatial intelligence support to the Commanding General of 3d Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up the MLG
+* Provided geospatial intelligence support to the Commanding General of 3d Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up the MLG
 * Led teams conducting annual training exercises and real world operations spanning multiple countries
 * Managed the planning, production, and dissemination of almost 500 geospatial products over a 12-month period
 * Established a geospatial library, organizing over 500 gigabytes of data, and associated operating procedures in support of daily production
