@@ -44,6 +44,18 @@ layout: default
     </div>
 
     <div class="col-12 col-md-9">
+      <div class="project-videos">
+        {%- if page.videos.size > 0 -%}
+          {%- for video in page.videos -%}
+            {%- assign video_path = "/assets/img/projects/" | append: page.slug | append: "/video-1-small.jpg" -%}
+            <p>
+              <a data-fancybox="gallery" href="{{ video }}">
+                <img src="{{ video_path | relative_url }}">
+              </a>
+            </p>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
       <div class="project-images">
         {%- if page.images > 0 -%}
         
