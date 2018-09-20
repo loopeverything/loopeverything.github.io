@@ -4,11 +4,11 @@ permalink: /resume/
 ---
 
 # Alex Thompson
-Master of Science in Cartography and GIS, with a focus on emerging trends in web mapping and data visualization. Over ten years of experience in application development, business analysis, project and team management, and geospatial analysis. Adaptable attitude and a demonstrated ability to excel in fast-paced environments.
+Master of Science in Cartography and GIS, with a focus on emerging trends in web mapping and data visualization. Over ten years of experience in application development, business analysis, project and team management, and geospatial analysis. Adaptable attitude and a demonstrated ability to excel in fast-paced environments. Cleared for Top Secret SCI (2011 to 2016).
 
-[LinkedIn Profile](https://www.linkedin.com/in/alexthompson/) &nbsp;&nbsp;
-[AngelList Profile](https://angel.co/alex-thompson-23) &nbsp;&nbsp;
-[GitHub Profile](https://github.com/loopeverything)
+[LinkedIn Profile](https://www.linkedin.com/in/alexthompson/){:target="_blank"} &nbsp;&nbsp;
+[AngelList Profile](https://angel.co/alex-thompson-23){:target="_blank"} &nbsp;&nbsp;
+[GitHub Profile](https://github.com/loopeverything){:target="_blank"}
 
 ## Education
 ---
@@ -35,7 +35,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 ---
 ### United States Marine Corps
 #### Geospatial Intelligence Chief, 3rd Marine Logistics Group Headquarters G-2
-##### Okinawa, Japan — April 2015 to November 2016
+##### April 2015 — November 2016
 * Provided geospatial intelligence support to the Commanding General of 3rd Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up MLG
 * Managed the planning, production, and dissemination of over 500 geospatial products—a tenfold increase over the previous period
 * Established a digital library to organize over 500 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
@@ -45,7 +45,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Nominated for the Military Member of the Quarter award through the National System for Geospatial-Intelligence Awards Program
 
 #### Geospatial Intelligence Analyst, 3rd Intelligence Battalion
-##### Okinawa, Japan — December 2012 to April 2015
+##### December 2012 — April 2015
 * Collected, analyzed, and processed geospatial data to aid in the production of intelligence products
 * Produced intelligence products in support of the III Marine Expeditionary Force and the 36 countries that fall under its area of responsibility in the Asia-Pacific region
 * Worked with multiple service branches, civilian intelligence agencies, and multinational partners as part of regular operational responsibilities, training exercises, and real-world operations
@@ -54,7 +54,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 
 ### Progress Energy
 #### Associate IT Analyst
-##### Raleigh, NC — June 2007 to June 2010
+##### June 2007 — June 2010
 * Connected internal customers and developers by translating business needs into technical requirements
 * Developed in-house enterprise software solutions using C# and ASP.NET
 * Coordinated with vendors to implement third-party software solutions
@@ -62,14 +62,8 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 
 ## Technical Skills
 ---
-#### Geospatial Analysis
-ArcGIS, QGIS, Leaflet, D3, Mapbox, Turf
 
-#### Design and Development
-HTML, CSS, JavaScript, jQuery, NodeJS, React, Redux, Laravel PHP, Python, C#, .NET, Java
-
-#### Data Management
-MySQL, PostgreSQL, PostGIS, GitHub
-
-#### Key Applications
-Photoshop, Illustrator, Sketch, Unity
+| _Geospatial Analysis_ | ArcGIS, QGIS, Leaflet, D3, Mapbox, Turf |
+| _Development_ | HTML, CSS, JavaScript, jQuery, NodeJS, React, Redux, Laravel PHP, Python, C#, .NET, Java |
+| _Data Management_ | MySQL, PostgreSQL, PostGIS, GitHub |
+| _Key Applications_ | Photoshop, Illustrator, Sketch, Unity |
