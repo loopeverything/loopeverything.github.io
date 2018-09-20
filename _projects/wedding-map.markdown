@@ -16,4 +16,4 @@ The QR code in the corner linked to a website with an interactive version of the
 
 SVG outlines of the world map and Okinawa were produced in QGIS, while Illustrator was used to create the actual card.
 
-*The wedding website is still up, so please note that the QR code has been blurred for privacy*
+*The wedding website is still up, so please note that the QR code has been blurred for privacy.*
