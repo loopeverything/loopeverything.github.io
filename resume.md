@@ -64,6 +64,6 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 ---
 
 | _Geospatial Analysis_ | ArcGIS, QGIS, Leaflet, D3, Mapbox, Turf |
-| _Development_ | HTML, CSS, JavaScript, jQuery, NodeJS, React, Redux, Laravel PHP, Python, C#, .NET, Java |
+| _Development_ | HTML, CSS, JavaScript, jQuery, Node.js, React, Redux, Laravel PHP, Python, C#, .NET, Java |
 | _Data Management_ | MySQL, PostgreSQL, PostGIS, GitHub |
 | _Key Applications_ | Photoshop, Illustrator, Sketch, Unity |
