@@ -105,8 +105,9 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
   </div>
 </div>
 * Connected internal customers and developers by translating business needs into technical requirements
+* Coordinated with cross-functional teams to plan and execute projects
 * Developed in-house enterprise software solutions using C# and ASP.NET
-* Coordinated with vendors to implement third-party software solutions
+* Worked with vendors to implement third-party software solutions
 * Managed a software product portfolio of more than a dozen applications
 
 ## Technical Skills
