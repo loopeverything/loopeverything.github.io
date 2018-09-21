@@ -14,7 +14,7 @@ permalink: /resume/
     [GitHub Profile](https://github.com/loopeverything){:target="_blank"}
   </p>
   <p markdown="1">
-    [Download my resume as a PDF]({{ "assets/misc/Thompson_resume.pdf" | relative_url }}){:target="_blank"}
+    [Download my resume as a PDF]({{ "files/Thompson_resume.pdf" | relative_url }}){:target="_blank"}
   </p>
 </div>
 
