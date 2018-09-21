@@ -13,16 +13,16 @@ Master of Science in Cartography and GIS, with a focus on emerging trends in web
 ## Education
 ---
 ### University of Wisconsin-Madison
-#### Master of Science in Cartography and GIS — 4.0/4.0
+#### Master of Science in Cartography and GIS — *4.0/4.0*
 ##### September 2018
 Coursework focused on web map development, spatial analysis techniques, UI/UX design relevant to interactive cartography, and big data visualization.
 
 ### National Geospatial-Intelligence Agency
-#### Intermediate Geographic Intelligence Specialist Course — Honor Graduate
+#### Intermediate Geographic Intelligence Specialist Course — *Honor Graduate*
 ##### October 2014
 Completed advanced courses in the fields of geodetic surveying and geospatial analysis.
 
-#### Basic Geographic Intelligence Specialist Course — Distinguished Graduate
+#### Basic Geographic Intelligence Specialist Course — *Distinguished Graduate*
 ##### November 2012
 Completed over 820 hours of study in geodetic surveying and geospatial analysis.
 
