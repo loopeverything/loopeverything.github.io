@@ -48,7 +48,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 ##### December 2012 — April 2015
 * Collected, analyzed, and processed geospatial data to aid in the production of intelligence products
 * Produced intelligence products in support of the III Marine Expeditionary Force and the 36 countries that fall under its area of responsibility in the Asia-Pacific region
-* Worked with multiple service branches, civilian intelligence agencies, and multinational partners as part of regular operational responsibilities, training exercises, and real-world operations
+* Worked with multiple service branches, civilian intelligence agencies, and multinational partners as part of regular operational duties, training exercises, and real-world operations
 * Created a specialized training program for Army analysts while attached to the 1st Special Forces Group
 * Meritoriously promoted in June of 2013
 
