@@ -10,6 +10,7 @@ tags:
   - React
   - Redux
   - Leaflet
+  - Mapbox
   - Turf
 videos:
   - https://www.youtube.com/watch?v=g5bg9rKTVoM

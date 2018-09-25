@@ -6,6 +6,7 @@ subtitle: "Exploring census data geospatially through a web interface"
 date:     2018-05-01
 category: projects
 tags:
+  - Mapbox
   - Leaflet
   - jQuery
   - Laravel

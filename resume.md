@@ -112,7 +112,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 
 ## Technical Skills
 
-| **Geospatial Analysis** | ArcGIS, QGIS, Leaflet, D3, Mapbox, Turf |
+| **Geospatial Analysis** | ArcGIS, QGIS, GRASS, Leaflet, D3, Mapbox, Turf, OpenStreetMap |
 | **Development** | HTML, CSS, JavaScript, jQuery, Node.js, React, Redux, Laravel PHP, Python, C#, .NET, Java |
 | **Data Management** | MySQL, PostgreSQL, PostGIS, GitHub |
 | **Key Applications** | Photoshop, Illustrator, Sketch, Unity |

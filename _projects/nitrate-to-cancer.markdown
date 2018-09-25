@@ -6,8 +6,9 @@ subtitle: "Examining the relation between nitrate and cancer in Wisconsin"
 date:     2018-06-01
 category: projects
 tags:
+  - Mapbox
   - Leaflet
-  - Turf.js
+  - Turf
   - React
   - Node.js
   - Express
