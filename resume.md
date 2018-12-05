@@ -5,7 +5,7 @@ permalink: /resume/
 
 <div style="text-align:center;"><h1>Alex Thompson</h1></div>
 <div style="text-align:justify;">
-  Master of Science in Cartography and GIS, with a focus on emerging trends in web mapping and data visualization. Over ten years of experience in application development, business analysis, project and team management, and geospatial analysis. Adaptable attitude and a demonstrated ability to excel in fast-paced environments. Cleared for Top Secret SCI (2011 to 2016).
+  Master of Science in Cartography and GIS, with a focus on emerging trends in web mapping and data visualization. Experience in application development, business analysis, project and team management, and geospatial analysis. Adaptable attitude and a demonstrated ability to excel in fast-paced environments. Cleared for Top Secret SCI (2011 to 2016).
 </div>
 <div class="top-links">
   <p markdown="1">
@@ -14,7 +14,7 @@ permalink: /resume/
     [GitHub Profile](https://github.com/loopeverything){:target="_blank"}
   </p>
   <p markdown="1">
-    [Download my resume as a PDF]({{ "files/Thompson_resume.pdf" | relative_url }}){:target="_blank"}
+    [Download my resume as a PDF]({{ "files/ThompsonAlex_Resume.pdf" | relative_url }}){:target="_blank"}
   </p>
 </div>
 
@@ -76,9 +76,10 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Provided geospatial intelligence support to the Commanding General of 3rd Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up MLG
 * Managed the planning, production, and dissemination of over 500 geospatial products—a tenfold increase over the previous period
 * Established a digital library to organize over 500 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
-* Created standard operating procedures to facilitate faster daily intelligence production
+* Built custom geoprocessing models and Python scripts to automate repetitive tasks, improving both data intake and production speeds
+* Created standard operating procedures and quality controls to facilitate faster daily production
 * Led teams conducting annual training exercises and real-world operations spanning multiple countries
-* Awarded the Navy and Marine Corps Commendation Medal
+* Awarded the Navy and Marine Corps Commendation Medal for work done streamlining the G-2’s data infrastructure and increasing fusion between the different intelligence sections
 * Nominated for the Military Member of the Quarter award through the National System for Geospatial-Intelligence Awards Program
 
 <div class="d-flex">
@@ -92,8 +93,30 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Collected, analyzed, and processed geospatial data to aid in the production of intelligence products
 * Produced intelligence products in support of the III Marine Expeditionary Force and the 36 countries that fall under its area of responsibility in the Asia-Pacific region
 * Worked with multiple service branches, civilian intelligence agencies, and multinational partners as part of regular operational duties, training exercises, and real-world operations
-* Created a specialized training program for Army analysts while attached to the 1st Special Forces Group
+* Created a specialized GIS training program for Army intelligence analysts while attached to the 1st Special Forces Group
 * Meritoriously promoted in June of 2013
+
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Geospatial Intelligence Student
+  </div>
+  <div markdown="1">
+##### December 2011 — December 2012
+  </div>
+</div>
+* Completed over 820 hours of study in geodetic surveying and geospatial analysis at the National Geospatial-Intelligence Agency
+
+### Self-Employed
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Freelance Developer
+  </div>
+  <div markdown="1">
+##### June 2010 — November 2011
+  </div>
+</div>
+* Worked with a startup company to explore potential frontend interfaces, from design to rough implementation in HTML and CSS
+* Executed contracts with multiple e-commerce customers, primarily working on backends written in PHP
 
 ### Progress Energy
 <div class="d-flex">
@@ -112,7 +135,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 
 ## Technical Skills
 
-| **Geospatial Analysis** | ArcGIS, QGIS, GRASS, Leaflet, D3, Mapbox, Turf, OpenStreetMap |
+| **Geospatial Analysis** | ArcGIS, QGIS, GRASS, GDAL/OGR, Leaflet, D3, Mapbox, Turf, OpenStreetMap |
 | **Development** | HTML, CSS, JavaScript, jQuery, Node.js, React, Redux, Laravel PHP, Python, C#, .NET, Java |
-| **Data Management** | MySQL, PostgreSQL, PostGIS, GitHub |
+| **Data Management** | MySQL, PostgreSQL, PostGIS, Git/GitHub |
 | **Key Applications** | Photoshop, Illustrator, Sketch, Unity |
