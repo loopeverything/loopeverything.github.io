@@ -75,7 +75,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 </div>
 * Provided geospatial intelligence support to the Commanding General of 3rd Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up MLG
 * Managed the planning, production, and dissemination of over 500 geospatial products—a tenfold increase over the previous period
-* Established a digital library to organize over 500 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
+* Established a digital library to organize over 600 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
 * Coordinated with a third-party contractor to implement a networked storage and backup solution, streamlining the G-2’s  infrastructure and enabling faster data sharing between teams
 * Built custom geoprocessing models and Python scripts to automate repetitive tasks, improving both data intake and production speeds
 * Implemented standard operating procedures and quality controls to facilitate faster daily production
@@ -92,7 +92,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
   </div>
 </div>
 * Collected, analyzed, and processed geospatial data to aid in the production of intelligence products
-* Produced intelligence products in support of the III Marine Expeditionary Force and the 36 countries that fall under its area of responsibility in the Asia-Pacific region
+* Produced intelligence products in support of the III Marine Expeditionary Force and the 36 countries that fall under its area of responsibility, utilizing the ArcGIS toolset and Python
 * Worked with multiple service branches, civilian intelligence agencies, and multinational partners as part of regular operational duties, training exercises, and real-world operations
 * Created a specialized GIS training program for Army intelligence analysts while attached to the 1st Special Forces Group
 * Meritoriously promoted in June of 2013
@@ -116,7 +116,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 ##### June 2010 — November 2011
   </div>
 </div>
-* Worked with a startup company to explore potential frontend interfaces, from design to rough implementation in HTML and CSS
+* Worked with a startup company to explore potential web interfaces, from design to basic implementation
 * Executed contracts with multiple e-commerce customers, primarily working on backends written in PHP
 
 ### Progress Energy
@@ -137,6 +137,6 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 ## Technical Skills
 
 | **Geospatial Analysis** | ArcGIS, QGIS, GRASS, GDAL/OGR, Leaflet, D3, Mapbox, Turf, OpenStreetMap |
-| **Development** | HTML, CSS, JavaScript, jQuery, Node.js, React, Redux, Laravel PHP, Python, C#, .NET, Java |
+| **Development** | HTML, CSS, JavaScript, jQuery, Node.js, React, Redux, Laravel PHP, Python, C#, .NET |
 | **Data Management** | MySQL, PostgreSQL, PostGIS, Redis, Git/GitHub |
 | **Key Applications** | Photoshop, Illustrator, Sketch, Unity |
