@@ -41,7 +41,6 @@ Coursework focused on web map development, spatial analysis techniques, UI/UX de
 </div>
 Completed advanced courses in the fields of geodetic surveying and geospatial analysis.
 
-
 <div class="d-flex">
   <div class="flex-grow-1" markdown="1">
 #### Basic Geographic Intelligence Specialist Course — *Distinguished Graduate*
@@ -77,7 +76,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Managed the planning, production, and dissemination of over 500 geospatial products—a tenfold increase over the previous period
 * Established a digital library to organize over 600 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
 * Coordinated with a third-party contractor to implement a networked storage and backup solution, streamlining the G-2’s  infrastructure and enabling faster data sharing between teams
-* Built custom geoprocessing models and Python scripts to automate repetitive tasks, improving both data intake and production speeds
+* Built custom geoprocessing models and Python scripts to automate tasks and perform ETL operations, improving both data intake and production speeds
 * Implemented standard operating procedures and quality controls to facilitate faster daily production
 * Led teams conducting annual training exercises and real-world operations spanning multiple countries
 * Awarded the Navy and Marine Corps Commendation Medal for work done streamlining the data infrastructure and increasing fusion between the different intelligence sections
