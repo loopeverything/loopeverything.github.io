@@ -75,7 +75,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Provided geospatial intelligence support to the Commanding General of 3rd Marine Logistics Group (MLG), in addition to the 12 subordinate units that make up MLG
 * Managed the planning, production, and dissemination of over 500 geospatial products—a tenfold increase over the previous period
 * Established a digital library to organize over 600 gigabytes of geospatial data, drastically reducing time spent on product production and maintenance
-* Coordinated with a third-party contractor to implement a networked storage and backup solution, streamlining the G-2’s  infrastructure and enabling faster data sharing between teams
+* Coordinated with a third-party contractor to implement a networked server solution, streamlining the G-2’s  infrastructure and enabling faster data sharing between teams
 * Built custom geoprocessing models and Python scripts to automate tasks and perform ETL operations, improving both data intake and production speeds
 * Implemented standard operating procedures and quality controls to facilitate faster daily production
 * Led teams conducting annual training exercises and real-world operations spanning multiple countries
