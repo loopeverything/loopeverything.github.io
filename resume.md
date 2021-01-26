@@ -18,52 +18,10 @@ permalink: /resume/
   </p>
 </div>
 
-## Education
-### University of Wisconsin-Madison
-<div class="d-flex">
-  <div class="flex-grow-1" markdown="1">
-#### Master of Science in Cartography and GIS — *4.0/4.0*
-  </div>
-  <div markdown="1">
-##### September 2018
-  </div>
-</div>
-Coursework focused on web map development, spatial analysis techniques, UI/UX design relevant to interactive cartography, and big data visualization.
-
-### National Geospatial-Intelligence Agency
-<div class="d-flex">
-  <div class="flex-grow-1" markdown="1">
-#### Intermediate Geographic Intelligence Specialist Course — *Honor Graduate*
-  </div>
-  <div markdown="1">
-##### October 2014
-  </div>
-</div>
-Completed advanced courses in the fields of geodetic surveying and geospatial analysis.
-
-<div class="d-flex">
-  <div class="flex-grow-1" markdown="1">
-#### Basic Geographic Intelligence Specialist Course — *Distinguished Graduate*
-  </div>
-  <div markdown="1">
-##### November 2012
-  </div>
-</div>
-Completed over 820 hours of study in geodetic surveying and geospatial analysis.
-
-### Virginia Polytechnic Institute and State University
-<div class="d-flex">
-  <div class="flex-grow-1" markdown="1">
-#### Bachelor of Science in Business Management with a Minor in Leadership
-  </div>
-  <div markdown="1">
-##### May 2007
-  </div>
-</div>
-Coursework focused on Entrepreneurship, Innovation, and Technology. Member of the Student Government Association Student Senate, the Student Government Association Budget Board, and the Entrepreneurial Leadership Initiative.
-
 ## Professional Experience
+
 ### United States Marine Corps
+
 <div class="d-flex">
   <div class="flex-grow-1" markdown="1">
 #### Geospatial Intelligence Chief, 3rd Marine Logistics Group Headquarters G-2
@@ -107,6 +65,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Completed over 820 hours of study in geodetic surveying and geospatial analysis at the National Geospatial-Intelligence Agency
 
 ### Self-Employed
+
 <div class="d-flex">
   <div class="flex-grow-1" markdown="1">
 #### Freelance Developer
@@ -119,6 +78,7 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Executed contracts with multiple e-commerce customers, primarily working on backends written in PHP
 
 ### Progress Energy
+
 <div class="d-flex">
   <div class="flex-grow-1" markdown="1">
 #### Associate IT Analyst
@@ -132,6 +92,54 @@ Coursework focused on Entrepreneurship, Innovation, and Technology. Member of th
 * Developed in-house enterprise software solutions using C# and ASP.NET
 * Worked with vendors to implement third-party software solutions
 * Managed a software product portfolio of more than a dozen applications
+
+## Education
+
+### University of Wisconsin-Madison
+
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Master of Science in Cartography and GIS — *4.0/4.0*
+  </div>
+  <div markdown="1">
+##### September 2018
+  </div>
+</div>
+Coursework focused on web map development, spatial analysis techniques, UI/UX design relevant to interactive cartography, and big data visualization.
+
+### National Geospatial-Intelligence Agency
+
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Intermediate Geographic Intelligence Specialist Course — *Honor Graduate*
+  </div>
+  <div markdown="1">
+##### October 2014
+  </div>
+</div>
+Completed advanced courses in the fields of geodetic surveying and geospatial analysis.
+
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Basic Geographic Intelligence Specialist Course — *Distinguished Graduate*
+  </div>
+  <div markdown="1">
+##### November 2012
+  </div>
+</div>
+Completed over 820 hours of study in geodetic surveying and geospatial analysis.
+
+### Virginia Polytechnic Institute and State University
+
+<div class="d-flex">
+  <div class="flex-grow-1" markdown="1">
+#### Bachelor of Science in Business Management with a Minor in Leadership
+  </div>
+  <div markdown="1">
+##### May 2007
+  </div>
+</div>
+Coursework focused on Entrepreneurship, Innovation, and Technology. Member of the Student Government Association Student Senate, the Student Government Association Budget Board, and the Entrepreneurial Leadership Initiative.
 
 ## Technical Skills
 
